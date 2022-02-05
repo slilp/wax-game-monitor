@@ -2,8 +2,9 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: white;
+  font-family: "Poppins";
+  background-color: #14192e;
 }
 
 a {
@@ -13,4 +14,45 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./font/Poppins-Black.ttf") format("truetype");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./font/Poppins-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./font/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./font/Poppins-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./font/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./font/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./font/Poppins-Regular.ttf") format("truetype");
 }
