@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { styled } from "@mui/material/styles";
 import {
   Box,
@@ -11,7 +12,6 @@ import {
   ListItemText,
   ListItemIcon,
 } from "@mui/material";
-import { Home } from "@mui/icons-material";
 import { Button } from "../../atomic";
 import HomeIcon from "@mui/icons-material/Home";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
@@ -61,7 +61,7 @@ const CustomFrawer = styled(Drawer)(({ theme }) => ({
 }));
 
 function SideBar() {
-  const [selected, setSelected] = useState("home");
+  const router = useRouter();
 
   return (
     <CustomFrawer anchor="left" variant="permanent">
@@ -110,12 +110,16 @@ function SideBar() {
                   color: "#ffffff",
                   borderRadius: "15px",
                   backgroundColor: () => {
-                    return selected === item.key ? "#14192e" : "";
+                    return router.pathname.split("/")[0] +
+                      router.pathname.split("/")[1] ===
+                      item.key
+                      ? "#14192e"
+                      : "";
                   },
                 }}
               >
                 <ListItemIcon sx={{ color: "#ffffff" }}>
-                  {item.icon}{" "}
+                  {item.icon}
                 </ListItemIcon>
                 <ListItemText primary={item.label} />
               </ListItem>

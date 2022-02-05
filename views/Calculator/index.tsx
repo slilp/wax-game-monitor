@@ -1,7 +1,11 @@
 import React from "react";
 
-function Calculator() {
-  return <div>Calculator</div>;
+interface CalculatorProps {
+  name: string;
+}
+
+function Calculator({ name }: CalculatorProps) {
+  return <div>Calculator {name}</div>;
 }
 
 export default Calculator;
