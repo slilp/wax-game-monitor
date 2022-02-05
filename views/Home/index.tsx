@@ -2,8 +2,22 @@ import React from "react";
 import { Typography, Grid, Box } from "@mui/material";
 import HeaderData from "./HeaderData";
 import Image from "next/image";
-import { GradientText } from "../../components/atomic";
-import { BsGithub, BsFacebook, BsGlobe } from "react-icons/bs";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import EqualizerIcon from "@mui/icons-material/Equalizer";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+
+const Divide = (props: any) => (
+  <Box
+    height="1.5px"
+    borderRadius="25px"
+    width="85%"
+    bgcolor="#ffffff"
+    m="auto"
+    mt="15px"
+    mb="15px"
+    {...props}
+  />
+);
 
 function Home() {
   return (
@@ -13,18 +27,18 @@ function Home() {
       <Typography variant="h5" sx={{ fontWeight: "bold" }}>
         Game List We Support
       </Typography>
-      <Grid container spacing={5} sx={{ marginTop: "10px" }}>
+      <Grid container spacing={6} sx={{ marginTop: "10px" }}>
         {[1, 2, 3, 4, 5, 6].map((item) => (
-          <Grid key={item} item xs={12} sm={6} md={4}>
-            <Box display="flex">
+          <Grid key={item} item xs={12} sm={4}>
+            <Box display="flex" flexDirection="column">
               <Box
                 component="div"
-                sx={{ borderRadius: "25px 0 0 25px" }}
+                sx={{ borderRadius: "25px 25px 0 0" }}
                 overflow="hidden"
-                flex="1"
+                height="200px"
               >
                 <Image
-                  src="/spacecraftx.jpeg"
+                  src="/farmerworld.jpeg"
                   alt="wax"
                   width="100%"
                   height="100%"
@@ -32,34 +46,51 @@ function Home() {
                 />
               </Box>
               <Box
-                flex="1"
+                bgcolor="rgba(39, 55, 85, 0.75)"
+                borderRadius="0 0 25px 25px"
+                minHeight="225px"
+                p="15px"
                 display="flex"
                 flexDirection="column"
-                p="5px"
-                gap="10px"
-                justifyContent="center"
-                alignItems="center"
-                sx={{
-                  border: "1px solid grey",
-                  borderLeft: "none",
-                  borderRadius: "0 25px 25px 0",
-                }}
               >
-                <Box textAlign="center">
-                  <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                    Farmer world
+                <Box
+                  display="flex"
+                  minHeight="100px"
+                  justifyContent="space-around"
+                  width="100%"
+                >
+                  <Typography variant="body2">
+                    Explore deep space with our game. The Metaverse is waiting
+                    for you. Choose a species, pick the planet and suitable land
+                    and start mining. The Big varieties for items and unique
+                    amulets.
                   </Typography>
                 </Box>
-                <Box display="flex" justifyContent="space-around" width="100%">
-                  <Typography variant="h5">
-                    <BsGithub></BsGithub>
-                  </Typography>
-                  <Typography variant="h5">
-                    <BsFacebook></BsFacebook>
-                  </Typography>
-                  <Typography variant="h5">
-                    <BsGlobe></BsGlobe>
-                  </Typography>
+
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                  flexGrow="1"
+                  justifyContent="end"
+                >
+                  <Divide />
+                  <Grid container sx={{ textAlign: "center" }}>
+                    <Grid item xs={4}>
+                      <Typography variant="h5">
+                        <AssignmentIcon />
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={4}>
+                      <Typography variant="h5">
+                        <AttachMoneyIcon />
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={4}>
+                      <Typography variant="h5">
+                        <EqualizerIcon />
+                      </Typography>
+                    </Grid>
+                  </Grid>
                 </Box>
               </Box>
             </Box>
