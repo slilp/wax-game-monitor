@@ -1,10 +1,9 @@
 import React from "react";
 import { Typography, Grid, Box } from "@mui/material";
-import HeaderData from "./HeaderData";
 import Image from "next/image";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-import EqualizerIcon from "@mui/icons-material/Equalizer";
-import AssignmentIcon from "@mui/icons-material/Assignment";
+import Link from "next/link";
+import { Button } from "../../components/atomic";
+import games, { Game } from "../../config/games";
 
 const Divide = (props: any) => (
   <Box
@@ -22,13 +21,12 @@ const Divide = (props: any) => (
 function GameList() {
   return (
     <Grid container spacing={6} mt="10px">
-      {[1, 2, 3, 4, 5, 6].map((item) => (
-        <Grid key={item} item xs={12} sm={4}>
+      {games.map((item: Game) => (
+        <Grid key={item.id} item xs={12} sm={4}>
           <Box display="flex" flexDirection="column">
             <Box
               component="div"
               borderRadius="25px 25px 0 0"
-              // overflow="hidden"
               height="175px"
               bgcolor="rgba(39, 55, 85, 0.75)"
               p="10px"
@@ -41,7 +39,7 @@ function GameList() {
                     overflow="hidden"
                   >
                     <Image
-                      src="/farmerworld.jpeg"
+                      src={`/${item.logo}`}
                       alt="wax"
                       width="100%"
                       height="100%"
@@ -57,7 +55,7 @@ function GameList() {
                     justifyContent="center"
                   >
                     <div>
-                      <Typography variant="h6">Farmer world</Typography>
+                      <Typography variant="h6">{item.label}</Typography>
                     </div>
                   </Box>
                 </Grid>
@@ -77,11 +75,7 @@ function GameList() {
                 justifyContent="space-around"
                 width="100%"
               >
-                <Typography variant="body2">
-                  Explore deep space with our game. The Metaverse is waiting for
-                  you. Choose a species, pick the planet and suitable land and
-                  start mining. The Big varieties for items and unique amulets.
-                </Typography>
+                <Typography variant="body2">{item.desc}</Typography>
               </Box>
 
               <Box
@@ -91,7 +85,16 @@ function GameList() {
                 justifyContent="end"
               >
                 <Divide />
-                <Grid container sx={{ textAlign: "center" }}>
+                <Link href={item.game} passHref={true}>
+                  <Button
+                    variant="contained"
+                    sx={{ minWidth: "90%", color: "white" }}
+                  >
+                    SEE MORE
+                  </Button>
+                </Link>
+
+                {/* <Grid container sx={{ textAlign: "center" }}>
                   <Grid item xs={4}>
                     <Typography variant="h5">
                       <AssignmentIcon />
@@ -107,7 +110,7 @@ function GameList() {
                       <EqualizerIcon />
                     </Typography>
                   </Grid>
-                </Grid>
+                </Grid> */}
               </Box>
             </Box>
           </Box>

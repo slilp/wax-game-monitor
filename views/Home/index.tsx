@@ -5,7 +5,7 @@ import GameList from "./GameList";
 
 function Home() {
   return (
-    <Box m="25px 0 25px 0" m="25px 0 25px 0">
+    <Box m="25px 0 25px 0">
       <HeaderData />
       <br></br>
       <Typography variant="h5" sx={{ fontWeight: "bold" }}>

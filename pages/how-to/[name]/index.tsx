@@ -1,4 +1,4 @@
-import { Calculator } from "../../views";
+import { HowTo } from "../../../views";
 import {
   GetStaticProps,
   GetStaticPropsContext,
@@ -32,4 +32,4 @@ export const getStaticProps: GetStaticProps = async (
   };
 };
 
-export default Calculator;
+export default HowTo;

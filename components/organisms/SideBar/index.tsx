@@ -11,6 +11,7 @@ import {
   ListItem,
   ListItemText,
   ListItemIcon,
+  Typography,
 } from "@mui/material";
 import { Button } from "../../atomic";
 import HomeIcon from "@mui/icons-material/Home";
@@ -23,32 +24,30 @@ interface ListItem {
   label: string;
   icon: any;
   url: string;
+  match: string[];
 }
 
 const lists: ListItem[] = [
   {
-    key: "home",
+    key: "",
     label: "Home",
     icon: <HomeIcon />,
     url: "/",
+    match: [""],
   },
   {
     key: "calculator",
     label: "Calculator",
     icon: <AttachMoneyIcon />,
     url: "/calculator",
-  },
-  {
-    key: "document",
-    label: "How to play",
-    icon: <AssignmentIcon />,
-    url: "/howto",
+    match: ["calculator", "how-to"],
   },
   {
     key: "port",
     label: "Port",
     icon: <AccountBalanceWalletIcon />,
     url: "/me",
+    match: ["me"],
   },
 ];
 
@@ -62,6 +61,7 @@ const CustomFrawer = styled(Drawer)(({ theme }) => ({
 
 function SideBar() {
   const router = useRouter();
+  const path = router.pathname.split("/")[0] + router.pathname.split("/")[1];
 
   return (
     <CustomFrawer anchor="left" variant="permanent">
@@ -110,11 +110,7 @@ function SideBar() {
                   color: "#ffffff",
                   borderRadius: "15px",
                   backgroundColor: () => {
-                    return router.pathname.split("/")[0] +
-                      router.pathname.split("/")[1] ===
-                      item.key
-                      ? "#14192e"
-                      : "";
+                    return item.match.includes(path) ? "#14192e" : "";
                   },
                 }}
               >
