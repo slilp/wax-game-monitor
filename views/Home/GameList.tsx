@@ -39,7 +39,7 @@ function GameList() {
                     overflow="hidden"
                   >
                     <Image
-                      src={`/${item.logo}`}
+                      src={`/${item.name}/${item.logo}`}
                       alt="wax"
                       width="100%"
                       height="100%"

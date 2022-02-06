@@ -33,7 +33,7 @@ const lists: ListItem[] = [
     label: "Home",
     icon: <HomeIcon />,
     url: "/",
-    match: [""],
+    match: ["", "game"],
   },
   {
     key: "calculator",

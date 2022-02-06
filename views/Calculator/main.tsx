@@ -26,7 +26,7 @@ function MainCalculator() {
                 <Grid item xs={6} sm={4}>
                   <Box width="125px" overflow="hidden" borderRadius="25px">
                     <Image
-                      src={`/${item.logo}`}
+                      src={`/${item.name}/${item.logo}`}
                       alt="wax"
                       width="100%"
                       height="100%"

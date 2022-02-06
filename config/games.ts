@@ -24,7 +24,7 @@ const games: Game[] = [
     name: "warspace",
     label: "Warspace",
     desc: "WarSpace is an NFT game project — real-time strategy. Thanks to the tokenized economy, players themselves control the market and build trade relations. Everyone can choose their own path: develop stone mining, engage in logging, restore the food industry or go deep underground in search of gold. Resources are needed to build new structures, and to participate in pvp battles.",
-    logo: "warspace.jpeg",
+    logo: "warspace.jpg",
     web: "https://warspace.io",
     discord: "https://discord.gg/gwsZNMZr",
     atomic: "https://wax.atomichub.io/market?collection_name=warspacegame",
