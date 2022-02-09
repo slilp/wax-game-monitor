@@ -7,7 +7,7 @@ import { blue } from "@mui/material/colors";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#EA923E",
+      main: "#3b6fba",
     },
   },
   typography: {
