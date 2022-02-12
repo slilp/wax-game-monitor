@@ -1,7 +1,11 @@
 import axios from "axios";
-import { GetTableRows, RequestGetTableRows } from "./modal";
+import { GetTableRows, RequestGetTableRows, BalanceResponse } from "./modal";
 
 const baseUrl = "https://chain.wax.io/v1/chain";
+const eosamsterdamUrl = "https://lightapi.eosamsterdam.net";
+
+export const getBalance = (wallet: string) =>
+  axios.get<BalanceResponse>(`${eosamsterdamUrl}/api/balances/wax/${wallet}`);
 
 export const getTableRow = ({
   code,

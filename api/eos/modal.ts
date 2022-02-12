@@ -20,3 +20,14 @@ export interface RequestGetTableRows {
   upperBound: string;
   limit: number;
 }
+
+export interface BalanceResponse {
+  account_name: string;
+  balances: BalanceInfo[];
+}
+
+interface BalanceInfo {
+  amount: string;
+  currency: string;
+  decimals: string;
+}

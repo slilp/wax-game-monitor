@@ -70,8 +70,8 @@ const mapToPublicContent = async (rawData: any): Promise<AssetInfo[]> => {
   if (templateInfo.data.success) {
     templateInfo.data.data.map((item: any) => {
       result.push({
-        id: item.template_id + "",
-        name: item.name + "",
+        id: item.template_id,
+        name: item.name,
         image: `${imageUrl}/${item.immutable_data.img}`,
       });
     });

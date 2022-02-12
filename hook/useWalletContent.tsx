@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import {
-  getWalletContent as contentSpaceCraftx,
-  game as codeSpaceCraftX,
-} from "../api/game/spacecraftx";
+import { getWalletContent as contentSpaceCraftx } from "../api/game/spacecraftx";
+import { spxCode } from "../api/game";
 
 interface WalletContentProps {
   code: string;
@@ -15,7 +13,7 @@ function useWalletContent({ code }: WalletContentProps) {
   const fetchingData = async (wallet: string) => {
     setLoading(true);
     let response = [];
-    if (code === codeSpaceCraftX) response = await contentSpaceCraftx(wallet);
+    if (code === spxCode) response = await contentSpaceCraftx(wallet);
     setData(response);
     setLoading(false);
   };
