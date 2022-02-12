@@ -1,30 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { getTableRow } from "../../api/eos/eos";
+import React from "react";
+import useContent from "../../hook/useContent";
 
-interface CalculatorProps {
-  name: string;
+export interface CalculatorProps {
+  code: string;
 }
 
-function Calculator({ name }: CalculatorProps) {
-  const [data, setData] = useState<any>({});
+function Calculator({ code }: CalculatorProps) {
+  const { data, loading } = useContent({ code });
 
-  const fetchingData = async () => {
-    const response = await getTableRow({
-      code: "spacecraftxc",
-      table: "users",
-      scope: "spacecraftxc",
-      upperBound: "giwxm.wam",
-      lowerBound: "giwxm.wam",
-    });
-    setData(response);
-  };
-
-  useEffect(() => {
-    fetchingData();
-  });
   return (
     <div>
-      Calculator {name} {JSON.stringify(data.data)}
+      {code}
+      {loading && <div>LOADING...</div>}
+      {!loading && <div>{JSON.stringify(data)}</div>}
     </div>
   );
 }

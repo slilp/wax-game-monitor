@@ -5,8 +5,8 @@ import {
   GetStaticPropsResult,
 } from "next";
 
-interface CalculatorProps {
-  name: string;
+export interface CalculatorProps {
+  code: string;
 }
 
 export async function getStaticPaths() {
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
     paths: [
       { params: { name: "warspace" } },
       { params: { name: "farmerworld" } },
-      { params: { name: "spacecraftx" } },
+      { params: { name: "spacecraftxc" } },
     ],
     fallback: true,
   };
@@ -23,11 +23,10 @@ export async function getStaticPaths() {
 export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<CalculatorProps>> => {
-  const { name }: any = context.params;
-
+  const response = context?.params?.name;
   return {
     props: {
-      name: name,
+      code: response + "",
     },
   };
 };

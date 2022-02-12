@@ -14,7 +14,7 @@ export async function getStaticPaths() {
     paths: [
       { params: { name: "warspace" } },
       { params: { name: "farmerworld" } },
-      { params: { name: "spacecraftx" } },
+      { params: { name: "spacecraftxc" } },
     ],
     fallback: true,
   };

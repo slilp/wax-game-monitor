@@ -18,4 +18,5 @@ export interface RequestGetTableRows {
   scope: string;
   lowerBound: string;
   upperBound: string;
+  limit: number;
 }
