@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
-import {
-  getPublicContent as contentSpaceCraftx,
-  game as codeSpaceCraftX,
-} from "../api/game/spacecraftx";
+import { getPublicContent as contentSpaceCraftx } from "../api/game/spacecraftx";
+import { AssetInfo } from "../api/game/modal";
+import { spxCode } from "../api/game";
 
 interface ContentProps {
   code: string;
 }
 
 function useContent({ code }: ContentProps) {
-  const [data, setData] = useState<unknown>({});
+  const [data, setData] = useState<AssetInfo[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   const fetchingData = async () => {
     setLoading(true);
-    let response = [];
-    if (code === codeSpaceCraftX) response = await contentSpaceCraftx();
+    let response: AssetInfo[] = [];
+    if (code === spxCode) response = await contentSpaceCraftx();
     setData(response);
     setLoading(false);
   };

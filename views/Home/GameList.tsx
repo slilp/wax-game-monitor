@@ -99,7 +99,7 @@ function GameList() {
                     <Typography variant="h5">
                       <AssignmentIcon />
                     </Typography>
-                  </Grid>
+                  </Grid>  
                   <Grid item xs={4}>
                     <Typography variant="h5">
                       <AttachMoneyIcon />

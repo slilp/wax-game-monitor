@@ -11,7 +11,6 @@ import {
   ListItem,
   ListItemText,
   ListItemIcon,
-  Typography,
 } from "@mui/material";
 import { Button } from "../../atomic";
 import HomeIcon from "@mui/icons-material/Home";
@@ -33,7 +32,7 @@ const lists: ListItem[] = [
     label: "Home",
     icon: <HomeIcon />,
     url: "/",
-    match: ["", "game"],
+    match: [""],
   },
   {
     key: "calculator",
@@ -51,7 +50,7 @@ const lists: ListItem[] = [
   },
 ];
 
-const CustomFrawer = styled(Drawer)(({ theme }) => ({
+const CustomDrawer = styled(Drawer)(({ theme }) => ({
   width: 300,
   color: theme.palette.success.main,
   "& .MuiDrawer-paper": {
@@ -64,7 +63,7 @@ function SideBar() {
   const path = router.pathname.split("/")[0] + router.pathname.split("/")[1];
 
   return (
-    <CustomFrawer anchor="left" variant="permanent">
+    <CustomDrawer anchor="left" variant="permanent">
       <Box width="275px" overflow="hidden" mt="50px" mb="25px">
         <Box
           display="flex"
@@ -138,7 +137,7 @@ function SideBar() {
           <Box>LOGO 3</Box>
         </Box>
       </Box>
-    </CustomFrawer>
+    </CustomDrawer>
   );
 }
 

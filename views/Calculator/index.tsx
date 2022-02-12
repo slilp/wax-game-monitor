@@ -1,5 +1,7 @@
 import React from "react";
 import useContent from "../../hook/useContent";
+import SpaceCraftX from "./game/SpaceCraftX";
+import { spxCode } from "../../api/game";
 
 export interface CalculatorProps {
   code: string;
@@ -10,9 +12,11 @@ function Calculator({ code }: CalculatorProps) {
 
   return (
     <div>
-      {code}
       {loading && <div>LOADING...</div>}
-      {!loading && <div>{JSON.stringify(data)}</div>}
+
+      {!loading && code === spxCode && (
+        <SpaceCraftX assets={data}></SpaceCraftX>
+      )}
     </div>
   );
 }
