@@ -16,7 +16,6 @@ import { Button } from "../../atomic";
 import HomeIcon from "@mui/icons-material/Home";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import AssignmentIcon from "@mui/icons-material/Assignment";
 
 interface ListItem {
   key: string;

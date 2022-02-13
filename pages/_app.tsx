@@ -1,8 +1,9 @@
 import "../styles/globals.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import type { AppProps } from "next/app";
+import { store } from "../redux/store";
+import { Provider } from "react-redux";
 import { Layout } from "../components/organisms";
-import { blue } from "@mui/material/colors";
 
 const theme = createTheme({
   palette: {
@@ -21,11 +22,13 @@ const theme = createTheme({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+    </Provider>
   );
 }
 
