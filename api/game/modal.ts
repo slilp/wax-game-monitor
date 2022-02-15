@@ -7,5 +7,5 @@ export interface AssetInfo {
   id: string;
   name: string;
   image: string;
-  value?: unknown;
+  value?: any;
 }

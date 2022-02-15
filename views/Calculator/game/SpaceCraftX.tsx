@@ -1,6 +1,13 @@
 import React from "react";
-import { Box, Grid, CardMedia } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
+import Image from "next/image";
 import { AssetInfo } from "../../../api/game/modal";
+import { HeaderPrice } from "../../../components/molecules";
+import ToolSection from "./component/ToolSection";
+import IToolSection from "./component/IToolSection";
+import CrewSection from "./component/CrewSection";
+import PlanetSection from "./component/PlanetSection";
+import { SxcTokens } from "./const";
 
 function SpaceCraftX({ assets }: { assets: AssetInfo[] }) {
   return (
@@ -8,72 +15,52 @@ function SpaceCraftX({ assets }: { assets: AssetInfo[] }) {
       <Box height="25px"></Box>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Box bgcolor="rgba(39, 55, 85, 0.75)" p="15px" borderRadius="15px">
-            <Grid container>
-              <Grid item xs={12} sm={4}>
-                <CardMedia
-                  component="img"
-                  height="30%"
-                  width="150px"
-                  alt={assets[0].id}
-                  src={assets[0].image}
-                />
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                fdfsd
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                fsdf
-              </Grid>
-            </Grid>
+          <Box
+            width="150px"
+            sx={{ borderRadius: "50%" }}
+            overflow="hidden"
+            m="auto"
+          >
+            <Image
+              src={`/spacecraftxc/spacecraftxc.jpeg`}
+              alt="wax"
+              width="100%"
+              height="100%"
+              layout="responsive"
+            />
           </Box>
         </Grid>
         <Grid item xs={12}>
-          <Box bgcolor="rgba(39, 55, 85, 0.75)" p="5px" borderRadius="15px">
-            <Grid container>
-              <Grid item xs={12} sm={4}>
-                fdfsfds
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                fdfsd
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                fsdf
-              </Grid>
-            </Grid>
-          </Box>
+          <HeaderPrice
+            game="spacecraftxc"
+            tokens={[SxcTokens.SCIC, SxcTokens.SCID, SxcTokens.SCIW]}
+          ></HeaderPrice>
         </Grid>
+      </Grid>
+      <Box height="25px"></Box>
+
+      <Grid container spacing={3}>
+        {/* Tool section */}
         <Grid item xs={12}>
-          <Box bgcolor="rgba(39, 55, 85, 0.75)" p="5px" borderRadius="15px">
-            <Grid container>
-              <Grid item xs={12} sm={4}>
-                fdfsfds
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                fdfsd
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                fsdf
-              </Grid>
-            </Grid>
-          </Box>
+          <ToolSection assets={assets}></ToolSection>
         </Grid>
+
+        {/* Itool section */}
         <Grid item xs={12}>
-          <Box bgcolor="rgba(39, 55, 85, 0.75)" p="5px" borderRadius="15px">
-            <Grid container>
-              <Grid item xs={12} sm={4}>
-                fdfsfds
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                fdfsd
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                fsdf
-              </Grid>
-            </Grid>
-          </Box>
+          <IToolSection assets={assets}></IToolSection>
         </Grid>
-        {JSON.stringify(assets)}
+
+        {/* Crew section */}
+        <Grid item xs={12}>
+          <Grid container spacing={4}>
+            <Grid item xs={12} sm={6}>
+              <CrewSection assets={assets}></CrewSection>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <PlanetSection assets={assets}></PlanetSection>
+            </Grid>
+          </Grid>
+        </Grid>
       </Grid>
     </div>
   );
