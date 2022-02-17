@@ -1,11 +1,16 @@
 import React from "react";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 
-interface CalculatorProps {
-  name: string;
+interface HowToProps {
+  source: MDXRemoteSerializeResult;
 }
 
-function HowTo({ name }: CalculatorProps) {
-  return <div>HowTo{name}</div>;
+function HowTo({ source }: HowToProps) {
+  return (
+    <div>
+      <MDXRemote {...source} />
+    </div>
+  );
 }
 
 export default HowTo;

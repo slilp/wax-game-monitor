@@ -1,4 +1,5 @@
 import React from "react";
+import { Loader } from "../../components/atomic";
 import useContent from "../../hook/useContent";
 import SpaceCraftX from "./game/SpaceCraftX";
 import { spxCode } from "../../api/game";
@@ -12,7 +13,7 @@ function Calculator({ code }: CalculatorProps) {
 
   return (
     <div>
-      {loading && <div>LOADING...</div>}
+      {loading && <Loader />}
 
       {!loading && code === spxCode && (
         <SpaceCraftX assets={data}></SpaceCraftX>

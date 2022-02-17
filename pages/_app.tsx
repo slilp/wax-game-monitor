@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { MDXProvider } from "@mdx-js/react";
 import type { AppProps } from "next/app";
 import { store } from "../redux/store";
 import { Provider } from "react-redux";
@@ -24,9 +25,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <MDXProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </MDXProvider>
       </ThemeProvider>
     </Provider>
   );

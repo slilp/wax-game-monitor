@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import Image from "next/image";
-import { AssetInfo } from "../../../api/game/modal";
-import { HeaderPrice } from "../../../components/molecules";
+import { AssetInfo } from "../../../../api/game/modal";
+import { HeaderPrice } from "../../../../components/molecules";
 import ToolSection from "./component/ToolSection";
 import IToolSection from "./component/IToolSection";
 import CrewSection from "./component/CrewSection";

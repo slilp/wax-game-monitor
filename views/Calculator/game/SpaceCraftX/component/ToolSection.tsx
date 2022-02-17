@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
-import { AssetInfo } from "../../../../api/game/modal";
+import { AssetInfo } from "../../../../../api/game/modal";
 import Image from "next/image";
-import CardTool from "../component/CardTool";
+import CardTool from "./CardTool";
 import {
   scicToolsV2,
   scicTools,

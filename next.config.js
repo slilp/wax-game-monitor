@@ -1,15 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+const withMDX = require("@next/mdx")({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+});
+
+const nextConfig = withMDX({
   reactStrictMode: true,
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: "/calculator",
-  //       destination: "/",
-  //       permanent: true,
-  //     },
-  //   ];
-  // },
-};
+});
 
 module.exports = nextConfig;

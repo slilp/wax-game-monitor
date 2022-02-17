@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Grid } from "@mui/material";
-import { AssetInfo } from "../../../../api/game/modal";
-import CardInfo from "../component/CardInfo";
+import { AssetInfo } from "../../../../../api/game/modal";
+import CardInfo from "./CardInfo";
 import { planetCommon, planetRare, planetUltrarare } from "../const";
 
 function PlanetSection({ assets }: { assets: AssetInfo[] }) {
