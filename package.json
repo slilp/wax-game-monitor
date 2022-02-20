@@ -15,6 +15,7 @@
     "@mui/material": "^5.3.1",
     "@next/mdx": "^12.0.10",
     "@reduxjs/toolkit": "^1.7.2",
+    "@waxio/waxjs": "^1.0.4",
     "axios": "^0.25.0",
     "next": "12.0.8",
     "next-mdx-remote": "^3.0.8",
