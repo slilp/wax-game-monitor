@@ -10,7 +10,6 @@ import Footer from "../Footer";
 function Layout({ children }: any) {
   const dispatch = useAppDispatch();
   const { tokens, wax } = useWax();
-  const waxData = useAppSelector((state) => state.wax);
 
   useEffect(() => {
     dispatch(
