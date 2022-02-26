@@ -5,7 +5,21 @@ import Image from "next/image";
 import CardTool from "./CardTool";
 import { SxcTokens, scicITools, scidITools, sciwITools } from "../const";
 
-function IToolSection({ assets }: { assets: AssetInfo[] }) {
+interface ConvertPrice {
+  [key: string]: {
+    Wax: number;
+    USD: number;
+    THB: number;
+  };
+}
+
+function IToolSection({
+  assets,
+  prices,
+}: {
+  assets: AssetInfo[];
+  prices?: ConvertPrice;
+}) {
   return (
     <Box bgcolor="rgba(39, 55, 85, 0.75)" p="5px" borderRadius="15px">
       <Grid container spacing={3}>
@@ -39,9 +53,21 @@ function IToolSection({ assets }: { assets: AssetInfo[] }) {
                 waxCraft={1000}
                 dailyUsd={500}
                 dailyWax={990}
-                scidCraft={assetData?.immutableData?.value?.market_prices?.[0]}
-                scicCraft={assetData?.immutableData?.value?.market_prices?.[1]}
-                sciwCraft={assetData?.immutableData?.value?.market_prices?.[2]}
+                scidCraft={
+                  assetData?.immutableData?.value?.market_prices?.[0]?.split(
+                    " "
+                  )[0]
+                }
+                scicCraft={
+                  assetData?.immutableData?.value?.market_prices?.[1]?.split(
+                    " "
+                  )[0]
+                }
+                sciwCraft={
+                  assetData?.immutableData?.value?.market_prices?.[2]?.split(
+                    " "
+                  )[0]
+                }
               ></CardTool>
             </Grid>
           ))}
@@ -73,9 +99,21 @@ function IToolSection({ assets }: { assets: AssetInfo[] }) {
                 waxCraft={1000}
                 dailyUsd={500}
                 dailyWax={990}
-                scidCraft={assetData?.immutableData?.value?.market_prices?.[0]}
-                scicCraft={assetData?.immutableData?.value?.market_prices?.[1]}
-                sciwCraft={assetData?.immutableData?.value?.market_prices?.[2]}
+                scidCraft={
+                  assetData?.immutableData?.value?.market_prices?.[0]?.split(
+                    " "
+                  )[0]
+                }
+                scicCraft={
+                  assetData?.immutableData?.value?.market_prices?.[1]?.split(
+                    " "
+                  )[0]
+                }
+                sciwCraft={
+                  assetData?.immutableData?.value?.market_prices?.[2]?.split(
+                    " "
+                  )[0]
+                }
               ></CardTool>
             </Grid>
           ))}
@@ -107,9 +145,21 @@ function IToolSection({ assets }: { assets: AssetInfo[] }) {
                 waxCraft={1000}
                 dailyUsd={500}
                 dailyWax={990}
-                scidCraft={assetData?.immutableData?.value?.market_prices?.[0]}
-                scicCraft={assetData?.immutableData?.value?.market_prices?.[1]}
-                sciwCraft={assetData?.immutableData?.value?.market_prices?.[2]}
+                scidCraft={
+                  assetData?.immutableData?.value?.market_prices?.[0]?.split(
+                    " "
+                  )[0]
+                }
+                scicCraft={
+                  assetData?.immutableData?.value?.market_prices?.[1]?.split(
+                    " "
+                  )[0]
+                }
+                sciwCraft={
+                  assetData?.immutableData?.value?.market_prices?.[2]?.split(
+                    " "
+                  )[0]
+                }
               ></CardTool>
             </Grid>
           ))}

@@ -4,7 +4,21 @@ import { AssetInfo } from "../../../../../api/game/modal";
 import CardInfo from "./CardInfo";
 import { normalCrew, uncommonCrew, rareCrew } from "../const";
 
-function CrewSection({ assets }: { assets: AssetInfo[] }) {
+interface ConvertPrice {
+  [key: string]: {
+    Wax: number;
+    USD: number;
+    THB: number;
+  };
+}
+
+function CrewSection({
+  assets,
+  prices,
+}: {
+  assets: AssetInfo[];
+  prices?: ConvertPrice;
+}) {
   return (
     <Box bgcolor="rgba(39, 55, 85, 0.75)" p="5px" borderRadius="15px">
       <Grid container spacing={3}>
@@ -19,9 +33,21 @@ function CrewSection({ assets }: { assets: AssetInfo[] }) {
                 name={assetData?.immutableData?.name}
                 usdCraft={500}
                 waxCraft={1000}
-                scidCraft={assetData?.immutableData?.value?.market_prices?.[0]}
-                scicCraft={assetData?.immutableData?.value?.market_prices?.[1]}
-                sciwCraft={assetData?.immutableData?.value?.market_prices?.[2]}
+                scidCraft={
+                  assetData?.immutableData?.value?.market_prices?.[0]?.split(
+                    " "
+                  )[0]
+                }
+                scicCraft={
+                  assetData?.immutableData?.value?.market_prices?.[1]?.split(
+                    " "
+                  )[0]
+                }
+                sciwCraft={
+                  assetData?.immutableData?.value?.market_prices?.[2]?.split(
+                    " "
+                  )[0]
+                }
               ></CardInfo>
             </Grid>
           ))}
@@ -39,9 +65,21 @@ function CrewSection({ assets }: { assets: AssetInfo[] }) {
                 name={assetData?.immutableData?.name}
                 usdCraft={500}
                 waxCraft={1000}
-                scidCraft={assetData?.immutableData?.value?.market_prices?.[0]}
-                scicCraft={assetData?.immutableData?.value?.market_prices?.[1]}
-                sciwCraft={assetData?.immutableData?.value?.market_prices?.[2]}
+                scidCraft={
+                  assetData?.immutableData?.value?.market_prices?.[0]?.split(
+                    " "
+                  )[0]
+                }
+                scicCraft={
+                  assetData?.immutableData?.value?.market_prices?.[1]?.split(
+                    " "
+                  )[0]
+                }
+                sciwCraft={
+                  assetData?.immutableData?.value?.market_prices?.[2]?.split(
+                    " "
+                  )[0]
+                }
               ></CardInfo>
             </Grid>
           ))}
@@ -59,9 +97,21 @@ function CrewSection({ assets }: { assets: AssetInfo[] }) {
                 name={assetData?.immutableData?.name}
                 usdCraft={500}
                 waxCraft={1000}
-                scidCraft={assetData?.immutableData?.value?.market_prices?.[0]}
-                scicCraft={assetData?.immutableData?.value?.market_prices?.[1]}
-                sciwCraft={assetData?.immutableData?.value?.market_prices?.[2]}
+                scidCraft={
+                  assetData?.immutableData?.value?.market_prices?.[0]?.split(
+                    " "
+                  )[0]
+                }
+                scicCraft={
+                  assetData?.immutableData?.value?.market_prices?.[1]?.split(
+                    " "
+                  )[0]
+                }
+                sciwCraft={
+                  assetData?.immutableData?.value?.market_prices?.[2]?.split(
+                    " "
+                  )[0]
+                }
               ></CardInfo>
             </Grid>
           ))}

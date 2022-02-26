@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getTokenPrice, getWaxPrice } from "../api/alcor";
+import { getTokenPrice, getWaxPrice, getWaxPriceInTHB } from "../api/alcor";
 import { WaxPrice, TokenPrice } from "../api/alcor/modal";
 
 function useWax() {
@@ -9,6 +9,7 @@ function useWax() {
       usd: 0,
     },
   });
+  const [waxThb, setWaxThb] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -19,14 +20,17 @@ function useWax() {
     setLoading(true);
     const waxRespose = await getWaxPrice();
     const tokenRespose = await getTokenPrice();
+    const tokenThbRespose = await getWaxPriceInTHB();
     setTokens(tokenRespose.data);
     setWax(waxRespose.data);
+    setWaxThb(tokenThbRespose.data.data[2300].quote[2809].price);
     setLoading(false);
   };
 
   return {
     tokens,
     wax,
+    waxThb,
     loading,
   };
 }

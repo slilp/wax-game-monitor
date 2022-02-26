@@ -11,7 +11,31 @@ import {
   SxcTokens,
 } from "../const";
 
-function ToolSection({ assets }: { assets: AssetInfo[] }) {
+interface ConvertPrice {
+  [key: string]: {
+    Wax: number;
+    USD: number;
+    THB: number;
+  };
+}
+
+function ToolSection({
+  assets,
+  prices,
+}: {
+  assets: AssetInfo[];
+  prices?: ConvertPrice;
+}) {
+  const calculateThb = (scid: number, token: SxcTokens) => {
+    const thb = prices?.[token]?.THB;
+    return thb ? thb * scid : 0;
+  };
+
+  const calculateWax = (scid: number, token: SxcTokens) => {
+    const thb = prices?.[token]?.Wax;
+    return thb ? thb * scid : 0;
+  };
+
   return (
     <Box bgcolor="rgba(39, 55, 85, 0.75)" p="15px" borderRadius="15px">
       <Grid container spacing={3}>
@@ -41,12 +65,32 @@ function ToolSection({ assets }: { assets: AssetInfo[] }) {
                 img={assetData?.immutableData?.img}
                 name={assetData?.immutableData?.name}
                 roi={25}
-                usdCraft={500}
-                waxCraft={1000}
+                usdCraft={
+                  calculateThb(
+                    assetData?.immutableData?.value?.second?.split(" ")[0],
+                    SxcTokens.SCID
+                  ) +
+                  calculateThb(
+                    assetData?.immutableData?.value?.first.split(" ")[0],
+                    SxcTokens.SCIC
+                  )
+                }
+                waxCraft={
+                  calculateWax(
+                    assetData?.immutableData?.value?.second?.split(" ")[0],
+                    SxcTokens.SCID
+                  ) +
+                  calculateWax(
+                    assetData?.immutableData?.value?.first.split(" ")[0],
+                    SxcTokens.SCIC
+                  )
+                }
                 dailyUsd={500}
                 dailyWax={990}
-                scidCraft={assetData?.immutableData?.value?.second}
-                scicCraft={assetData?.immutableData?.value?.first}
+                scidCraft={
+                  assetData?.immutableData?.value?.second?.split(" ")[0]
+                }
+                scicCraft={assetData?.immutableData?.value?.first.split(" ")[0]}
               ></CardTool>
             </Grid>
           ))}
@@ -60,12 +104,34 @@ function ToolSection({ assets }: { assets: AssetInfo[] }) {
                 img={assetData?.immutableData?.img}
                 name={assetData?.immutableData?.name}
                 roi={25}
-                usdCraft={500}
-                waxCraft={1000}
+                usdCraft={
+                  calculateThb(
+                    assetData?.immutableData?.value?.second?.split(" ")[0],
+                    SxcTokens.SCID
+                  ) +
+                  calculateThb(
+                    assetData?.immutableData?.value?.first.split(" ")[0],
+                    SxcTokens.SCIC
+                  )
+                }
+                waxCraft={
+                  calculateWax(
+                    assetData?.immutableData?.value?.second?.split(" ")[0],
+                    SxcTokens.SCID
+                  ) +
+                  calculateWax(
+                    assetData?.immutableData?.value?.first.split(" ")[0],
+                    SxcTokens.SCIC
+                  )
+                }
                 dailyUsd={500}
                 dailyWax={990}
-                scidCraft={assetData?.immutableData?.value?.second}
-                scicCraft={assetData?.immutableData?.value?.first}
+                scidCraft={
+                  assetData?.immutableData?.value?.second?.split(" ")[0]
+                }
+                scicCraft={
+                  assetData?.immutableData?.value?.first?.split(" ")[0]
+                }
               ></CardTool>
             </Grid>
           ))}
@@ -93,12 +159,34 @@ function ToolSection({ assets }: { assets: AssetInfo[] }) {
                 img={assetData?.immutableData?.img}
                 name={assetData?.immutableData?.name}
                 roi={25}
-                usdCraft={500}
-                waxCraft={1000}
+                usdCraft={
+                  calculateThb(
+                    assetData?.immutableData?.value?.second?.split(" ")[0],
+                    SxcTokens.SCID
+                  ) +
+                  calculateThb(
+                    assetData?.immutableData?.value?.first.split(" ")[0],
+                    SxcTokens.SCIC
+                  )
+                }
+                waxCraft={
+                  calculateWax(
+                    assetData?.immutableData?.value?.second?.split(" ")[0],
+                    SxcTokens.SCID
+                  ) +
+                  calculateWax(
+                    assetData?.immutableData?.value?.first.split(" ")[0],
+                    SxcTokens.SCIC
+                  )
+                }
                 dailyUsd={500}
                 dailyWax={990}
-                scidCraft={assetData?.immutableData?.value?.second}
-                scicCraft={assetData?.immutableData?.value?.first}
+                scidCraft={
+                  assetData?.immutableData?.value?.second?.split(" ")[0]
+                }
+                scicCraft={
+                  assetData?.immutableData?.value?.first?.split(" ")[0]
+                }
               ></CardTool>
             </Grid>
           ))}
@@ -126,12 +214,34 @@ function ToolSection({ assets }: { assets: AssetInfo[] }) {
                 img={assetData?.immutableData?.img}
                 name={assetData?.immutableData?.name}
                 roi={25}
-                usdCraft={500}
-                waxCraft={1000}
+                usdCraft={
+                  calculateThb(
+                    assetData?.immutableData?.value?.second?.split(" ")[0],
+                    SxcTokens.SCID
+                  ) +
+                  calculateThb(
+                    assetData?.immutableData?.value?.first.split(" ")[0],
+                    SxcTokens.SCIC
+                  )
+                }
+                waxCraft={
+                  calculateWax(
+                    assetData?.immutableData?.value?.second?.split(" ")[0],
+                    SxcTokens.SCID
+                  ) +
+                  calculateWax(
+                    assetData?.immutableData?.value?.first.split(" ")[0],
+                    SxcTokens.SCIC
+                  )
+                }
                 dailyUsd={500}
                 dailyWax={990}
-                scidCraft={assetData?.immutableData?.value?.second}
-                scicCraft={assetData?.immutableData?.value?.first}
+                scidCraft={
+                  assetData?.immutableData?.value?.second?.split(" ")[0]
+                }
+                scicCraft={
+                  assetData?.immutableData?.value?.first?.split(" ")[0]
+                }
               ></CardTool>
             </Grid>
           ))}

@@ -51,7 +51,7 @@ function CardTool({
         </Box>
         <Box bgcolor="green" borderRadius="25px" textAlign="center" p="5px">
           <Typography variant="body2">Daily : {dailyWax} WAX</Typography>
-          <Typography variant="body2">({dailyUsd} BATH)</Typography>
+          <Typography variant="body2">({dailyUsd.toFixed(2)} BATH)</Typography>
         </Box>
         <Box height="5px"></Box>
         <Typography variant="body2">Crafting Cost</Typography>
@@ -62,7 +62,10 @@ function CardTool({
             width={15}
             height={15}
           />
-          <Typography variant="body2">{scicCraft}</Typography>
+          <Typography variant="body2">
+            {" "}
+            {scicCraft ? Number(scicCraft).toFixed(0) : 0} SCID
+          </Typography>
         </Box>
         <Box display="flex" flexDirection="row" gap="5px">
           <Image
@@ -71,7 +74,9 @@ function CardTool({
             width={15}
             height={15}
           />
-          <Typography variant="body2">{scidCraft}</Typography>
+          <Typography variant="body2">
+            {scidCraft ? Number(scidCraft).toFixed(0) : 0} SCID
+          </Typography>
         </Box>
         {sciwCraft && (
           <Box display="flex" flexDirection="row" gap="5px">
@@ -81,11 +86,14 @@ function CardTool({
               width={15}
               height={15}
             />
-            <Typography variant="body2">{sciwCraft}</Typography>
+            <Typography variant="body2">
+              {" "}
+              {sciwCraft ? Number(sciwCraft).toFixed(0) : 0} SCIW
+            </Typography>
           </Box>
         )}
         <Typography variant="body2">
-          {waxCraft} WAX ( {usdCraft} THB )
+          {waxCraft.toFixed(2)} WAX ( {usdCraft.toFixed(2)} THB )
         </Typography>
         <Box height="5px"></Box>
       </Box>

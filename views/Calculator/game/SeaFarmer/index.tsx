@@ -3,7 +3,7 @@ import { Box, Grid } from "@mui/material";
 import Image from "next/image";
 import { AssetInfo } from "../../../../api/game/modal";
 import { HeaderPrice } from "../../../../components/molecules";
-// import ToolSection from "./component/ToolSection";
+import ToolSection from "./component/ToolSection";
 // import IToolSection from "./component/IToolSection";
 // import CrewSection from "./component/CrewSection";
 // import PlanetSection from "./component/PlanetSection";
@@ -42,7 +42,7 @@ function SeaFarmer({ assets }: { assets: AssetInfo[] }) {
       <Grid container spacing={3}>
         {/* Tool section */}
         <Grid item xs={12}>
-          {JSON.stringify(assets)}
+          <ToolSection assets={assets}></ToolSection>
         </Grid>
       </Grid>
     </div>

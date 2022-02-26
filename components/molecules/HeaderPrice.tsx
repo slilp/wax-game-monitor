@@ -14,6 +14,14 @@ function HeaderPrice({ game, tokens }: HeaderPriceProps) {
     tokens.includes(token.symbol)
   );
 
+  const convertToThb = (token: string) => {
+    const tokenPrice = gameToken?.find((i) => i.symbol === token)?.price;
+    if (tokenPrice) {
+      return tokenPrice * waxData.waxToThb;
+    }
+    return 0;
+  };
+
   return (
     <Grid container spacing={3}>
       {tokens?.map((token: string) => (
@@ -33,12 +41,7 @@ function HeaderPrice({ game, tokens }: HeaderPriceProps) {
             <Typography variant="h6">{token}</Typography>
             <Typography variant="body1">
               ( {gameToken.find((i) => i.symbol === token)?.price?.toFixed(4)}{" "}
-              WAX ={" "}
-              {(
-                gameToken?.find((i) => i.symbol === token)?.price ||
-                0 * waxData.waxToUsd
-              ).toFixed(4)}{" "}
-              USD )
+              WAX = {convertToThb(token).toFixed(4)} THB )
             </Typography>
           </Box>
         </Grid>

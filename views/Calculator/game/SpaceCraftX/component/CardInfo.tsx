@@ -48,7 +48,9 @@ function CardInfo({
             width={15}
             height={15}
           />
-          <Typography variant="body2">{scicCraft}</Typography>
+          <Typography variant="body2">
+            {scicCraft ? Number(scicCraft).toFixed(0) : 0} SCIC
+          </Typography>
         </Box>
         <Box display="flex" flexDirection="row" gap="5px">
           <Image
@@ -57,7 +59,9 @@ function CardInfo({
             width={15}
             height={15}
           />
-          <Typography variant="body2">{scidCraft}</Typography>
+          <Typography variant="body2">
+            {scidCraft ? Number(scidCraft).toFixed(0) : 0} SCID
+          </Typography>
         </Box>
         {sciwCraft && (
           <Box display="flex" flexDirection="row" gap="5px">
@@ -67,7 +71,10 @@ function CardInfo({
               width={15}
               height={15}
             />
-            <Typography variant="body2">{sciwCraft}</Typography>
+            <Typography variant="body2">
+              {" "}
+              {sciwCraft ? Number(sciwCraft).toFixed(0) : 0} SCIW
+            </Typography>
           </Box>
         )}
         <Typography variant="body2">

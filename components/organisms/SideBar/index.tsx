@@ -2,14 +2,13 @@ import React from "react";
 import { useAppSelector } from "../../../redux/hook";
 import { useRouter } from "next/router";
 import Link from "next/link";
-
 import Image from "next/image";
+
 import { styled } from "@mui/material/styles";
 import {
   Box,
   Drawer,
   List,
-  Divider,
   ListItem,
   ListItemText,
   ListItemIcon,
@@ -20,8 +19,9 @@ import { Button } from "../../atomic";
 import HomeIcon from "@mui/icons-material/Home";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import LogoutIcon from "@mui/icons-material/Logout";
+import { FaDiscord, FaGoogle, FaGift } from "react-icons/fa";
 
+import LogoutIcon from "@mui/icons-material/Logout";
 import useWaxTransaction from "../../../hook/useWaxTransaction";
 interface ListItem {
   key: string;
@@ -172,12 +172,24 @@ function SideBar() {
         flexGrow="1"
         mb="30px"
       >
-        <Divider />
+        <Box height="1.25px" bgcolor="#ffffff"></Box>
         <br></br>
         <Box display="flex" justifyContent="space-around">
-          <Box>LOGO 1</Box>
-          <Box>LOGO 2</Box>
-          <Box>LOGO 3</Box>
+          <Box>
+            <Typography variant="h6" sx={{ color: "white", cursor: "pointer" }}>
+              <FaDiscord></FaDiscord>
+            </Typography>
+          </Box>
+          <Box>
+            <Typography variant="h6" sx={{ color: "white", cursor: "pointer" }}>
+              <FaGoogle></FaGoogle>
+            </Typography>
+          </Box>
+          <Box>
+            <Typography variant="h6" sx={{ color: "white", cursor: "pointer" }}>
+              <FaGift></FaGift>
+            </Typography>
+          </Box>
         </Box>
       </Box>
     </CustomDrawer>

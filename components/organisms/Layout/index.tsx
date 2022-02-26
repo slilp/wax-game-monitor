@@ -9,7 +9,7 @@ import Footer from "../Footer";
 
 function Layout({ children }: any) {
   const dispatch = useAppDispatch();
-  const { tokens, wax } = useWax();
+  const { tokens, wax, waxThb } = useWax();
 
   useEffect(() => {
     dispatch(
@@ -19,9 +19,10 @@ function Layout({ children }: any) {
           symbol: item.quote_token.symbol.name,
           price: item.last_price,
         })),
+        waxToThb: waxThb,
       })
     );
-  }, [tokens, wax, dispatch]);
+  }, [tokens, wax, waxThb, dispatch]);
 
   return (
     <>

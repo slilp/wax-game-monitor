@@ -10,7 +10,6 @@ const mapToPublicContent = async (): Promise<AssetInfo[]> => {
 
   const allAssetInfo = await getAllAssetByGame(seaCode);
   if (allAssetInfo.data.success) {
-    console.log(JSON.stringify(allAssetInfo.data.data));
     allAssetInfo.data.data.map((item: AtomicAssetInfo) => {
       result.push({
         id: item?.template_id ?? "",
