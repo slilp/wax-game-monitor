@@ -35,18 +35,18 @@ function ToolSection({ assets }: { assets: AssetInfo[] }) {
           .filter((asset) => scicToolsV2.includes(asset.id))
           .sort((a, b) => parseInt(a.id) - parseInt(b.id))
           .map((assetData) => (
-            <Grid item xs={12} sm={4}>
+            <Grid key={assetData?.id} item xs={12} sm={4}>
               <CardTool
                 id={assetData?.id}
-                img={assetData?.image}
-                name={assetData?.name}
+                img={assetData?.immutableData?.img}
+                name={assetData?.immutableData?.name}
                 roi={25}
                 usdCraft={500}
                 waxCraft={1000}
                 dailyUsd={500}
                 dailyWax={990}
-                scidCraft={assetData?.value?.second}
-                scicCraft={assetData?.value?.first}
+                scidCraft={assetData?.immutableData?.value?.second}
+                scicCraft={assetData?.immutableData?.value?.first}
               ></CardTool>
             </Grid>
           ))}
@@ -54,18 +54,18 @@ function ToolSection({ assets }: { assets: AssetInfo[] }) {
           .filter((asset) => scicTools.includes(asset.id))
           .sort((a, b) => parseInt(a.id) - parseInt(b.id))
           .map((assetData) => (
-            <Grid item xs={12} sm={4}>
+            <Grid key={assetData?.id} item xs={12} sm={4}>
               <CardTool
                 id={assetData?.id}
-                img={assetData?.image}
-                name={assetData?.name}
+                img={assetData?.immutableData?.img}
+                name={assetData?.immutableData?.name}
                 roi={25}
                 usdCraft={500}
                 waxCraft={1000}
                 dailyUsd={500}
                 dailyWax={990}
-                scidCraft={assetData?.value?.second}
-                scicCraft={assetData?.value?.first}
+                scidCraft={assetData?.immutableData?.value?.second}
+                scicCraft={assetData?.immutableData?.value?.first}
               ></CardTool>
             </Grid>
           ))}
@@ -87,18 +87,18 @@ function ToolSection({ assets }: { assets: AssetInfo[] }) {
           .filter((asset) => scidTools.includes(asset.id))
           .sort((a, b) => parseInt(a.id) - parseInt(b.id))
           .map((assetData) => (
-            <Grid item xs={12} sm={4}>
+            <Grid key={assetData?.id} item xs={12} sm={4}>
               <CardTool
                 id={assetData?.id}
-                img={assetData?.image}
-                name={assetData?.name}
+                img={assetData?.immutableData?.img}
+                name={assetData?.immutableData?.name}
                 roi={25}
                 usdCraft={500}
                 waxCraft={1000}
                 dailyUsd={500}
                 dailyWax={990}
-                scidCraft={assetData?.value?.second}
-                scicCraft={assetData?.value?.first}
+                scidCraft={assetData?.immutableData?.value?.second}
+                scicCraft={assetData?.immutableData?.value?.first}
               ></CardTool>
             </Grid>
           ))}
@@ -120,18 +120,18 @@ function ToolSection({ assets }: { assets: AssetInfo[] }) {
           .filter((asset) => sciwTools.includes(asset.id))
           .sort((a, b) => parseInt(a.id) - parseInt(b.id))
           .map((assetData) => (
-            <Grid item xs={12} sm={4}>
+            <Grid key={assetData?.id} item xs={12} sm={4}>
               <CardTool
                 id={assetData?.id}
-                img={assetData?.image}
-                name={assetData?.name}
+                img={assetData?.immutableData?.img}
+                name={assetData?.immutableData?.name}
                 roi={25}
                 usdCraft={500}
                 waxCraft={1000}
                 dailyUsd={500}
                 dailyWax={990}
-                scidCraft={assetData?.value?.second}
-                scicCraft={assetData?.value?.first}
+                scidCraft={assetData?.immutableData?.value?.second}
+                scicCraft={assetData?.immutableData?.value?.first}
               ></CardTool>
             </Grid>
           ))}

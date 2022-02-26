@@ -17,7 +17,7 @@ function HeaderPrice({ game, tokens }: HeaderPriceProps) {
   return (
     <Grid container spacing={3}>
       {tokens?.map((token: string) => (
-        <Grid item xs={12} sm={4}>
+        <Grid key={token} item xs={12} sm={4}>
           <Box
             display="flex"
             justifyContent="center"

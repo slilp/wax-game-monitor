@@ -1,6 +1,7 @@
 import { RequestGetTableRows } from "../../eos/modal";
 import { getTableRow } from "../../eos";
-import { getAssetTemplateInfo, imageUrl } from "../../atomic";
+import { getAllAssetByGame, imageUrl } from "../../atomic";
+import { AtomicAssetInfo } from "../../atomic/modal";
 import { AssetInfo } from "../modal";
 import { spxCode } from "../../game";
 interface SpaceCraftConfig {
@@ -58,31 +59,29 @@ const mapToPublicContent = async (rawData: any): Promise<AssetInfo[]> => {
 
   const tool: SpaceCraftConfig[] = rawData?.minting_price;
   const crew: SpaceCraftConfig[] = rawData?.crew_settings;
-  const itool: any[] = rawData?.itool_settings;
-  const templates: string[] = [];
-  const allTool = tool.concat(crew).concat(itool);
-  allTool.map((item: SpaceCraftConfig) => {
-    templates.push(item.key);
-  });
+  const itool: SpaceCraftConfig[] = rawData?.itool_settings;
+  const allTool: SpaceCraftConfig[] = tool.concat(crew).concat(itool);
 
-  const templateInfo = await getAssetTemplateInfo(templates);
+  const allAssetInfo = await getAllAssetByGame(spxCode);
+  if (allAssetInfo.data.success) {
+    allTool.map((item: SpaceCraftConfig) => {
+      const tempData = allAssetInfo.data.data.find(
+        (i: AtomicAssetInfo) => i.template_id === item.key.toString()
+      );
 
-  if (templateInfo.data.success) {
-    templateInfo.data.data.map((item: any) => {
       result.push({
-        id: item.template_id,
-        name: item.name,
-        image: `${imageUrl}/${item.immutable_data.img}`,
+        id: tempData?.template_id ?? "",
+        immutableData: {
+          ...item,
+          ...tempData?.immutable_data,
+          img: `${imageUrl}/${tempData?.immutable_data?.img}`,
+        },
+        mutableData: tempData?.mutable_data,
       });
     });
   }
-  return result.map((asset: AssetInfo) => {
-    const value = allTool.find((i) => String(i.key) === asset.id)?.value;
-    return {
-      ...asset,
-      value,
-    };
-  });
+
+  return result;
 };
 
 export const getPublicContent = async (): Promise<AssetInfo[]> => {

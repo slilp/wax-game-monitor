@@ -5,7 +5,6 @@ export interface GetInGameProps {
 
 export interface AssetInfo {
   id: string;
-  name: string;
-  image: string;
-  value?: any;
+  immutableData?: any;
+  mutableData?: any;
 }

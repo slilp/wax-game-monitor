@@ -12,16 +12,19 @@ function PlanetSection({ assets }: { assets: AssetInfo[] }) {
           .filter((asset) => planetCommon?.includes(asset.id))
           .sort((a, b) => parseInt(a.id) - parseInt(b.id))
           .map((assetData) => (
-            <Grid item xs={12}>
+            <Grid key={assetData?.id} item xs={12}>
               <CardInfo
                 id={assetData?.id}
-                img={assetData?.image}
-                name={assetData?.name}
+                img={assetData?.immutableData?.img}
+                name={assetData?.immutableData?.name}
                 usdCraft={500}
                 waxCraft={1000}
-                scidCraft={assetData?.value?.market_prices?.[0]}
-                scicCraft={assetData?.value?.market_prices?.[1]}
-                sciwCraft={assetData?.value?.market_prices?.[2]}
+                scidCraft={
+                  assetData?.immutableData?.immutableData?.value
+                    ?.market_prices?.[0]
+                }
+                scicCraft={assetData?.immutableData?.value?.market_prices?.[1]}
+                sciwCraft={assetData?.immutableData?.value?.market_prices?.[2]}
               ></CardInfo>
             </Grid>
           ))}
@@ -32,16 +35,16 @@ function PlanetSection({ assets }: { assets: AssetInfo[] }) {
           .filter((asset) => planetRare?.includes(asset.id))
           .sort((a, b) => parseInt(a.id) - parseInt(b.id))
           .map((assetData) => (
-            <Grid item xs={12}>
+            <Grid key={assetData?.id} item xs={12}>
               <CardInfo
                 id={assetData?.id}
-                img={assetData?.image}
-                name={assetData?.name}
+                img={assetData?.immutableData?.img}
+                name={assetData?.immutableData?.name}
                 usdCraft={500}
                 waxCraft={1000}
-                scidCraft={assetData?.value?.market_prices?.[0]}
-                scicCraft={assetData?.value?.market_prices?.[1]}
-                sciwCraft={assetData?.value?.market_prices?.[2]}
+                scidCraft={assetData?.immutableData?.value?.market_prices?.[0]}
+                scicCraft={assetData?.immutableData?.value?.market_prices?.[1]}
+                sciwCraft={assetData?.immutableData?.value?.market_prices?.[2]}
               ></CardInfo>
             </Grid>
           ))}
@@ -52,16 +55,16 @@ function PlanetSection({ assets }: { assets: AssetInfo[] }) {
           .filter((asset) => planetUltrarare?.includes(asset.id))
           .sort((a, b) => parseInt(a.id) - parseInt(b.id))
           .map((assetData) => (
-            <Grid item xs={12}>
+            <Grid key={assetData?.id} item xs={12}>
               <CardInfo
                 id={assetData?.id}
-                img={assetData?.image}
-                name={assetData?.name}
+                img={assetData?.immutableData?.img}
+                name={assetData?.immutableData?.name}
                 usdCraft={500}
                 waxCraft={1000}
-                scidCraft={assetData?.value?.market_prices?.[0]}
-                scicCraft={assetData?.value?.market_prices?.[1]}
-                sciwCraft={assetData?.value?.market_prices?.[2]}
+                scidCraft={assetData?.immutableData?.value?.market_prices?.[0]}
+                scicCraft={assetData?.immutableData?.value?.market_prices?.[1]}
+                sciwCraft={assetData?.immutableData?.value?.market_prices?.[2]}
               ></CardInfo>
             </Grid>
           ))}

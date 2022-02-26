@@ -29,19 +29,19 @@ function IToolSection({ assets }: { assets: AssetInfo[] }) {
           .filter((asset) => scicITools.includes(asset.id))
           .sort((a, b) => parseInt(a.id) - parseInt(b.id))
           .map((assetData) => (
-            <Grid item xs={12} sm={4}>
+            <Grid key={assetData?.id} item xs={12} sm={4}>
               <CardTool
                 id={assetData?.id}
-                img={assetData?.image}
-                name={assetData?.name}
+                img={assetData?.immutableData?.img}
+                name={assetData?.immutableData?.name}
                 roi={25}
                 usdCraft={500}
                 waxCraft={1000}
                 dailyUsd={500}
                 dailyWax={990}
-                scidCraft={assetData?.value?.market_prices?.[0]}
-                scicCraft={assetData?.value?.market_prices?.[1]}
-                sciwCraft={assetData?.value?.market_prices?.[2]}
+                scidCraft={assetData?.immutableData?.value?.market_prices?.[0]}
+                scicCraft={assetData?.immutableData?.value?.market_prices?.[1]}
+                sciwCraft={assetData?.immutableData?.value?.market_prices?.[2]}
               ></CardTool>
             </Grid>
           ))}
@@ -63,19 +63,19 @@ function IToolSection({ assets }: { assets: AssetInfo[] }) {
           .filter((asset) => scidITools.includes(asset.id))
           .sort((a, b) => parseInt(a.id) - parseInt(b.id))
           .map((assetData) => (
-            <Grid item xs={12} sm={4}>
+            <Grid key={assetData?.id} item xs={12} sm={4}>
               <CardTool
                 id={assetData?.id}
-                img={assetData?.image}
-                name={assetData?.name}
+                img={assetData?.immutableData?.img}
+                name={assetData?.immutableData?.name}
                 roi={25}
                 usdCraft={500}
                 waxCraft={1000}
                 dailyUsd={500}
                 dailyWax={990}
-                scidCraft={assetData?.value?.market_prices?.[0]}
-                scicCraft={assetData?.value?.market_prices?.[1]}
-                sciwCraft={assetData?.value?.market_prices?.[2]}
+                scidCraft={assetData?.immutableData?.value?.market_prices?.[0]}
+                scicCraft={assetData?.immutableData?.value?.market_prices?.[1]}
+                sciwCraft={assetData?.immutableData?.value?.market_prices?.[2]}
               ></CardTool>
             </Grid>
           ))}
@@ -97,19 +97,19 @@ function IToolSection({ assets }: { assets: AssetInfo[] }) {
           .filter((asset) => sciwITools.includes(asset.id))
           .sort((a, b) => parseInt(a.id) - parseInt(b.id))
           .map((assetData) => (
-            <Grid item xs={12} sm={4}>
+            <Grid key={assetData?.id} item xs={12} sm={4}>
               <CardTool
                 id={assetData?.id}
-                img={assetData?.image}
-                name={assetData?.name}
+                img={assetData?.immutableData?.img}
+                name={assetData?.immutableData?.name}
                 roi={25}
                 usdCraft={500}
                 waxCraft={1000}
                 dailyUsd={500}
                 dailyWax={990}
-                scidCraft={assetData?.value?.market_prices?.[0]}
-                scicCraft={assetData?.value?.market_prices?.[1]}
-                sciwCraft={assetData?.value?.market_prices?.[2]}
+                scidCraft={assetData?.immutableData?.value?.market_prices?.[0]}
+                scicCraft={assetData?.immutableData?.value?.market_prices?.[1]}
+                sciwCraft={assetData?.immutableData?.value?.market_prices?.[2]}
               ></CardTool>
             </Grid>
           ))}

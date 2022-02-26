@@ -1,10 +1,10 @@
 export interface TemplateInfo {
   success: boolean;
-  data: AssetInfo[];
+  data: AtomicAssetInfo[];
 }
 
-interface AssetInfo {
+export interface AtomicAssetInfo {
   template_id: string;
-  name: string;
-  immutable_data: { img: string };
+  immutable_data: any;
+  mutable_data: any;
 }

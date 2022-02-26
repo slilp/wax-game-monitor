@@ -1,14 +1,18 @@
-import { HowTo } from "../../../views";
+// import { HowTo } from "../../../views";
 import {
   GetStaticProps,
   GetStaticPropsContext,
   GetStaticPropsResult,
 } from "next";
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 
 interface HowToProps {
   source: MDXRemoteSerializeResult;
+}
+
+function HowTo({ source }: HowToProps) {
+  return <div>{source && <MDXRemote {...source} />}</div>;
 }
 
 export async function getStaticPaths() {
