@@ -77,9 +77,8 @@ function CardInfo({
             </Typography>
           </Box>
         )}
-        <Typography variant="body2">
-          {waxCraft} WAX ( {usdCraft} THB )
-        </Typography>
+        <Typography variant="body2">{waxCraft.toFixed(0)} WAX</Typography>
+        <Typography variant="body2">{usdCraft.toFixed(0)} THB</Typography>
         <Box height="5px"></Box>
       </Box>
     </Box>

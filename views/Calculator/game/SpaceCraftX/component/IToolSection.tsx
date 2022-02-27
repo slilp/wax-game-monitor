@@ -2,24 +2,19 @@ import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { AssetInfo } from "../../../../../api/game/modal";
 import Image from "next/image";
-import CardTool from "./CardTool";
+import SubSectionTool from "./SubSectionTool";
+import useCurrency from "../../../../../hook/useCurrency";
 import { SxcTokens, scicITools, scidITools, sciwITools } from "../const";
 
-interface ConvertPrice {
-  [key: string]: {
-    Wax: number;
-    USD: number;
-    THB: number;
-  };
-}
+function IToolSection({ assets }: { assets: AssetInfo[] }) {
+  const { prices } = useCurrency({
+    tokens: [
+      SxcTokens.SCIC.toString(),
+      SxcTokens.SCID.toString(),
+      SxcTokens.SCIW.toString(),
+    ],
+  });
 
-function IToolSection({
-  assets,
-  prices,
-}: {
-  assets: AssetInfo[];
-  prices?: ConvertPrice;
-}) {
   return (
     <Box bgcolor="rgba(39, 55, 85, 0.75)" p="5px" borderRadius="15px">
       <Grid container spacing={3}>
@@ -43,33 +38,12 @@ function IToolSection({
           .filter((asset) => scicITools.includes(asset.id))
           .sort((a, b) => parseInt(a.id) - parseInt(b.id))
           .map((assetData) => (
-            <Grid key={assetData?.id} item xs={12} sm={4}>
-              <CardTool
-                id={assetData?.id}
-                img={assetData?.immutableData?.img}
-                name={assetData?.immutableData?.name}
-                roi={25}
-                usdCraft={500}
-                waxCraft={1000}
-                dailyUsd={500}
-                dailyWax={990}
-                scidCraft={
-                  assetData?.immutableData?.value?.market_prices?.[0]?.split(
-                    " "
-                  )[0]
-                }
-                scicCraft={
-                  assetData?.immutableData?.value?.market_prices?.[1]?.split(
-                    " "
-                  )[0]
-                }
-                sciwCraft={
-                  assetData?.immutableData?.value?.market_prices?.[2]?.split(
-                    " "
-                  )[0]
-                }
-              ></CardTool>
-            </Grid>
+            <SubSectionTool
+              key={assetData?.id}
+              assetData={assetData}
+              prices={prices}
+              type="itool"
+            ></SubSectionTool>
           ))}
       </Grid>
       <Box height="24px"></Box>
@@ -89,33 +63,12 @@ function IToolSection({
           .filter((asset) => scidITools.includes(asset.id))
           .sort((a, b) => parseInt(a.id) - parseInt(b.id))
           .map((assetData) => (
-            <Grid key={assetData?.id} item xs={12} sm={4}>
-              <CardTool
-                id={assetData?.id}
-                img={assetData?.immutableData?.img}
-                name={assetData?.immutableData?.name}
-                roi={25}
-                usdCraft={500}
-                waxCraft={1000}
-                dailyUsd={500}
-                dailyWax={990}
-                scidCraft={
-                  assetData?.immutableData?.value?.market_prices?.[0]?.split(
-                    " "
-                  )[0]
-                }
-                scicCraft={
-                  assetData?.immutableData?.value?.market_prices?.[1]?.split(
-                    " "
-                  )[0]
-                }
-                sciwCraft={
-                  assetData?.immutableData?.value?.market_prices?.[2]?.split(
-                    " "
-                  )[0]
-                }
-              ></CardTool>
-            </Grid>
+            <SubSectionTool
+              key={assetData?.id}
+              assetData={assetData}
+              prices={prices}
+              type="itool"
+            ></SubSectionTool>
           ))}
       </Grid>
       <Box height="24px"></Box>
@@ -135,33 +88,12 @@ function IToolSection({
           .filter((asset) => sciwITools.includes(asset.id))
           .sort((a, b) => parseInt(a.id) - parseInt(b.id))
           .map((assetData) => (
-            <Grid key={assetData?.id} item xs={12} sm={4}>
-              <CardTool
-                id={assetData?.id}
-                img={assetData?.immutableData?.img}
-                name={assetData?.immutableData?.name}
-                roi={25}
-                usdCraft={500}
-                waxCraft={1000}
-                dailyUsd={500}
-                dailyWax={990}
-                scidCraft={
-                  assetData?.immutableData?.value?.market_prices?.[0]?.split(
-                    " "
-                  )[0]
-                }
-                scicCraft={
-                  assetData?.immutableData?.value?.market_prices?.[1]?.split(
-                    " "
-                  )[0]
-                }
-                sciwCraft={
-                  assetData?.immutableData?.value?.market_prices?.[2]?.split(
-                    " "
-                  )[0]
-                }
-              ></CardTool>
-            </Grid>
+            <SubSectionTool
+              key={assetData?.id}
+              assetData={assetData}
+              prices={prices}
+              type="itool"
+            ></SubSectionTool>
           ))}
       </Grid>
     </Box>

@@ -1,12 +1,10 @@
 import React from "react";
 import { Box, Grid } from "@mui/material";
 import Image from "next/image";
+import { seaCode } from "../../../../api/game";
 import { AssetInfo } from "../../../../api/game/modal";
 import { HeaderPrice } from "../../../../components/molecules";
 import ToolSection from "./component/ToolSection";
-// import IToolSection from "./component/IToolSection";
-// import CrewSection from "./component/CrewSection";
-// import PlanetSection from "./component/PlanetSection";
 import { SeaTokens } from "./const";
 
 function SeaFarmer({ assets }: { assets: AssetInfo[] }) {
@@ -22,7 +20,7 @@ function SeaFarmer({ assets }: { assets: AssetInfo[] }) {
             m="auto"
           >
             <Image
-              src={`/seafarmersio/seafarmersio.png`}
+              src={`/${seaCode}/${seaCode}.png`}
               alt="wax"
               width="100%"
               height="100%"
@@ -32,7 +30,7 @@ function SeaFarmer({ assets }: { assets: AssetInfo[] }) {
         </Grid>
         <Grid item xs={12}>
           <HeaderPrice
-            game="seafarmersio"
+            game={seaCode}
             tokens={[SeaTokens.FSFT, SeaTokens.MSFT, SeaTokens.TSFT]}
           ></HeaderPrice>
         </Grid>
