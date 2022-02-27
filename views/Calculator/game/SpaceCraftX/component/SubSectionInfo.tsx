@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import CardInfo from "./CardInfo";
 import { ExchangePrice } from "../../../../../hook/useCurrency";
 import { AssetInfo } from "../../../../../api/game/modal";
 import { calculateTHB, calculateWAX } from "../../../../../utils/calculator";
 import { SxcTokens } from "../const";
+import { useAppSelector } from "../../../../../redux/hook";
+import { getAtomicSalePrice, spxCode } from "../../../../../api/game";
 
 interface SubSectionToolProps {
   prices: ExchangePrice;
@@ -12,6 +14,20 @@ interface SubSectionToolProps {
 }
 
 function SubSectionInfo({ prices, assetData }: SubSectionToolProps) {
+  const [saleAtomicWax, setSaleAtomicWax] = useState<number>(0);
+  const [saleAtomicThb, setSaleAtomicThb] = useState<number>(0);
+  const { waxToThb } = useAppSelector((state) => state.wax);
+
+  const getAtomicSale = async () => {
+    const response = await getAtomicSalePrice(spxCode, assetData?.id);
+    setSaleAtomicWax(response);
+    setSaleAtomicThb(waxToThb * response);
+  };
+
+  useEffect(() => {
+    getAtomicSale();
+  }, []);
+
   const immutableData = assetData?.immutableData;
   const scid = immutableData?.value?.market_prices?.[0]?.split(" ")[0];
   const scic = immutableData?.value?.market_prices?.[1]?.split(" ")[0];
@@ -35,6 +51,8 @@ function SubSectionInfo({ prices, assetData }: SubSectionToolProps) {
         scidCraft={scid}
         scicCraft={scic}
         sciwCraft={sciw}
+        atomicThb={saleAtomicThb}
+        atomicWax={saleAtomicWax}
       ></CardInfo>
     </Grid>
   );

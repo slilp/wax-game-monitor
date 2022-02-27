@@ -8,3 +8,14 @@ export interface AtomicAssetInfo {
   immutable_data: any;
   mutable_data: any;
 }
+
+export interface AtomicSale {
+  success: boolean;
+  data: AtomicSaleInfo[];
+}
+
+export interface AtomicSaleInfo {
+  price: {
+    amount: number;
+  };
+}

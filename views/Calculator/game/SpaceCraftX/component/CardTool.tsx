@@ -14,6 +14,8 @@ interface CardToolProps {
   usdCraft: number;
   dailyWax: number;
   dailyUsd: number;
+  atomicWax: number;
+  atomicThb: number;
 }
 
 function CardTool({
@@ -27,6 +29,8 @@ function CardTool({
   dailyWax,
   dailyUsd,
   sciwCraft,
+  atomicWax,
+  atomicThb,
 }: CardToolProps) {
   return (
     <Box display="flex">
@@ -95,8 +99,24 @@ function CardTool({
           </Box>
         )}
         <Typography variant="body2">{waxCraft.toFixed(0)} WAX</Typography>
-
         <Typography variant="body2">{usdCraft.toFixed(0)} THB</Typography>
+        <Box display="flex" flexDirection="row" gap="5px" mt="5px">
+          <Image src={`/atomic.svg`} alt="atomic_logo" width={15} height={15} />
+          <Typography variant="body2">AtomicHub</Typography>
+        </Box>
+        {atomicWax == 0 ? (
+          <Typography variant="body2">No Selling Found</Typography>
+        ) : (
+          <>
+            <Typography variant="body2">
+              {atomicWax.toFixed(0) + " WAX"}
+            </Typography>
+            <Typography variant="body2">
+              {atomicThb.toFixed(0) + " THB"}
+            </Typography>
+          </>
+        )}
+
         <Box height="5px"></Box>
       </Box>
     </Box>
