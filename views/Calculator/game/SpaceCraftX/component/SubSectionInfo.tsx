@@ -26,7 +26,7 @@ function SubSectionInfo({ prices, assetData }: SubSectionToolProps) {
 
   useEffect(() => {
     getAtomicSale();
-  }, []);
+  }, [waxToThb]);
 
   const immutableData = assetData?.immutableData;
   const scid = immutableData?.value?.market_prices?.[0]?.split(" ")[0];

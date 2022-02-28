@@ -26,7 +26,7 @@ function useCurrency({ tokens }: { tokens: string[] }) {
       };
     });
     setPrices(priceState);
-  }, []);
+  }, [waxData]);
 
   const convertToThb = (token: string) => {
     const tokenPrice = gameToken?.find((i) => i.symbol === token)?.price;

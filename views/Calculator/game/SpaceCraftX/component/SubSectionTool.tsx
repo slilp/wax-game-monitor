@@ -27,7 +27,7 @@ function SubSectionTool({ prices, assetData, type }: SubSectionToolProps) {
 
   useEffect(() => {
     getAtomicSale();
-  }, []);
+  }, [waxToThb]);
 
   const immutableData = assetData?.immutableData;
   let scid = 0;

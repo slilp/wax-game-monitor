@@ -2,10 +2,19 @@ import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { AssetInfo } from "../../../../../api/game/modal";
 import Image from "next/image";
-import CardInfo from "./CardInfo";
+import SubSectionTool from "./SubSectionTool";
+import useCurrency from "../../../../../hook/useCurrency";
 import { SeaTokens, fishingRod, pickaxe, magnet } from "../const";
 
 function ToolSection({ assets }: { assets: AssetInfo[] }) {
+  const { prices } = useCurrency({
+    tokens: [
+      SeaTokens.FSFT.toString(),
+      SeaTokens.MSFT.toString(),
+      SeaTokens.TSFT.toString(),
+    ],
+  });
+
   return (
     <Box bgcolor="rgba(39, 55, 85, 0.75)" p="15px" borderRadius="15px">
       <Grid container spacing={3}>
@@ -18,7 +27,7 @@ function ToolSection({ assets }: { assets: AssetInfo[] }) {
           >
             <Image
               src={`/seafarmersio/${SeaTokens.FSFT}.png`}
-              alt="SCIC"
+              alt={SeaTokens.FSFT}
               width={25}
               height={25}
             />
@@ -29,24 +38,25 @@ function ToolSection({ assets }: { assets: AssetInfo[] }) {
           .filter((asset) => fishingRod.includes(asset.id))
           .sort((a, b) => parseInt(a.id) - parseInt(b.id))
           .map((assetData) => (
-            <Grid key={assetData?.id} item xs={12} sm={4}>
-              <CardInfo
-                id={assetData?.id}
-                img={assetData?.immutableData?.img}
-                name={assetData?.immutableData?.name}
-                usdCraft={500}
-                waxCraft={1000}
-              ></CardInfo>
-            </Grid>
+            <SubSectionTool
+              key={assetData?.id}
+              assetData={assetData}
+              prices={prices}
+            ></SubSectionTool>
           ))}
       </Grid>
       <Box height="24px"></Box>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Box display="flex" justifyContent="center" gap="15px">
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            gap="15px"
+          >
             <Image
               src={`/seafarmersio/${SeaTokens.TSFT}.png`}
-              alt="SCID"
+              alt={SeaTokens.TSFT}
               width={25}
               height={25}
             />
@@ -57,24 +67,25 @@ function ToolSection({ assets }: { assets: AssetInfo[] }) {
           .filter((asset) => magnet.includes(asset.id))
           .sort((a, b) => parseInt(a.id) - parseInt(b.id))
           .map((assetData) => (
-            <Grid key={assetData?.id} item xs={12} sm={4}>
-              <CardInfo
-                id={assetData?.id}
-                img={assetData?.immutableData?.img}
-                name={assetData?.immutableData?.name}
-                usdCraft={500}
-                waxCraft={1000}
-              ></CardInfo>
-            </Grid>
+            <SubSectionTool
+              key={assetData?.id}
+              assetData={assetData}
+              prices={prices}
+            ></SubSectionTool>
           ))}
       </Grid>
       <Box height="24px"></Box>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Box display="flex" justifyContent="center" gap="15px">
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            gap="15px"
+          >
             <Image
               src={`/seafarmersio/${SeaTokens.MSFT}.png`}
-              alt="wax"
+              alt={SeaTokens.MSFT}
               width={25}
               height={25}
             />
@@ -85,15 +96,11 @@ function ToolSection({ assets }: { assets: AssetInfo[] }) {
           .filter((asset) => pickaxe.includes(asset.id))
           .sort((a, b) => parseInt(a.id) - parseInt(b.id))
           .map((assetData) => (
-            <Grid key={assetData?.id} item xs={12} sm={4}>
-              <CardInfo
-                id={assetData?.id}
-                img={assetData?.immutableData?.img}
-                name={assetData?.immutableData?.name}
-                usdCraft={500}
-                waxCraft={1000}
-              ></CardInfo>
-            </Grid>
+            <SubSectionTool
+              key={assetData?.id}
+              assetData={assetData}
+              prices={prices}
+            ></SubSectionTool>
           ))}
       </Grid>
     </Box>

@@ -18,6 +18,6 @@ export const getAllAssetByGame = (game: string) => {
 
 export const getAssetSale = (game: string, templateId: string) => {
   return axios.get<AtomicSale>(
-    `${atomicAssetUrl}/atomicmarket/v2/sales?collection_name=${game}&limit=1&order=asc&sort=price&template_id=${templateId}`
+    `${atomicAssetUrl}/atomicmarket/v2/sales?collection_name=${game}&limit=1&order=asc&sort=price&template_id=${templateId}&state=1`
   );
 };
