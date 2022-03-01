@@ -2,6 +2,7 @@ import { GetInGameProps } from "./modal";
 import { getAssetSale } from "../atomic";
 export const spxCode = "spacecraftxc";
 export const seaCode = "seafarmersio";
+export const roboCode = "roboempireio";
 export const getInGameData = ({ code, wallet }: GetInGameProps) => {};
 
 export const getAtomicSalePrice = async (

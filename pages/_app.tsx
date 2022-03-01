@@ -19,6 +19,15 @@ const theme = createTheme({
     fontWeightRegular: 400,
     fontWeightMedium: 500,
   },
+  components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          color: "#ffffff",
+        },
+      },
+    },
+  },
 });
 
 function MyApp({ Component, pageProps }: AppProps) {

@@ -34,7 +34,7 @@ function HeaderPrice({ game, tokens }: HeaderPriceProps) {
           >
             <Image
               src={`/${game}/${token}.png`}
-              alt="SCIC"
+              alt={token}
               width={25}
               height={25}
             />

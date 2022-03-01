@@ -89,6 +89,20 @@ const games: Game[] = [
     calculator: `${baseCalculatorUrl}seafarmersio`,
     game: `${baseGameUrl}seafarmersio`,
   },
+  {
+    id: "006",
+    name: "roboempireio",
+    label: "Robo Empire",
+    desc: "Mine & Craft game style on WAX Blockchain where you can grab a NFT, build and expand your empire by your strategy.",
+    logo: "roboempireio.jpeg",
+    web: "https://roboempire.io",
+    discord: "http://discord.gg/roboempireio",
+    atomic: "https://wax.atomichub.io/explorer/collection/roboempireio",
+    how: `${baseHowToUrl}roboempireio`,
+    statistic: `${baseStatisticUrl}roboempireio`,
+    calculator: `${baseCalculatorUrl}roboempireio`,
+    game: `${baseGameUrl}roboempireio`,
+  },
 ];
 
 export default games;

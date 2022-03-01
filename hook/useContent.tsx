@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getPublicContent as contentSpaceCraftx } from "../api/game/spacecraftx";
 import { getPublicContent as contentSeaFarmer } from "../api/game/seafarmer";
+import { getPublicContent as contentRoboEmpire } from "../api/game/roboempire";
+
 import { AssetInfo } from "../api/game/modal";
-import { spxCode, seaCode } from "../api/game";
+import { spxCode, seaCode, roboCode } from "../api/game";
 
 interface ContentProps {
   code: string;
@@ -17,6 +19,7 @@ function useContent({ code }: ContentProps) {
     let response: AssetInfo[] = [];
     if (code === spxCode) response = await contentSpaceCraftx();
     if (code === seaCode) response = await contentSeaFarmer();
+    if (code === roboCode) response = await contentRoboEmpire();
     setData(response);
     setLoading(false);
   };

@@ -124,7 +124,7 @@ function SideBar() {
             <Box sx={{ minWidth: "100%", textAlign: "center" }}>
               <Button
                 variant="contained"
-                sx={{ minWidth: "90%", color: "white" }}
+                sx={{ minWidth: "90%" }}
                 onClick={login}
               >
                 LOGIN
