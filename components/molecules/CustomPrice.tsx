@@ -9,7 +9,6 @@ import {
   TextField,
 } from "@mui/material";
 import { Button } from "../atomic";
-
 interface CustomTokenPrice {
   tokenName: string;
   value: number;
@@ -65,26 +64,37 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-const ValidationTextField = styled(TextField)({
-  "& input:valid + fieldset": {
-    borderColor: "green",
-    borderWidth: 2,
-  },
-  "& input:invalid + fieldset": {
-    borderColor: "red",
-    borderWidth: 2,
-  },
-  "& input:valid:focus + fieldset": {
-    borderLeftWidth: 6,
-    padding: "4px !important", // override inline-style
-  },
-});
-
 function CustomPrice({ game, tokens, setSelectValues }: CustomPriceProps) {
   const [open, setOpen] = useState<boolean>(false);
+  const [customTokens, setCustomTokens] = useState<CustomTokenPrice[]>([]);
+
+  useEffect(() => {
+    const tempState: CustomTokenPrice[] = tokens.map((token) => ({
+      tokenName: token,
+      value: 0,
+    }));
+    setCustomTokens(tempState);
+  }, []);
+
   useEffect(() => {
     if (!open) setSelectValues([]);
   }, [open]);
+
+  const handleChange = (event: any) => {
+    const tempState: CustomTokenPrice[] = customTokens.map((i) => {
+      if (i.tokenName !== event.target.name) return i;
+      return {
+        tokenName: i.tokenName,
+        value: event.target.value < 0 ? 0 : event.target.value,
+      };
+    });
+    setCustomTokens(tempState);
+  };
+
+  const handleCalculate = () => {
+    setSelectValues(customTokens);
+  };
+
   return (
     <Grid container spacing={3}>
       <Grid item sm={12}>
@@ -95,22 +105,7 @@ function CustomPrice({ game, tokens, setSelectValues }: CustomPriceProps) {
             <Button
               variant="contained"
               sx={{ minWidth: "15%" }}
-              onClick={() =>
-                setSelectValues([
-                  {
-                    tokenName: tokens[0],
-                    value: 5,
-                  },
-                  {
-                    tokenName: tokens[1],
-                    value: 10,
-                  },
-                  {
-                    tokenName: tokens[2],
-                    value: 30,
-                  },
-                ])
-              }
+              onClick={handleCalculate}
             >
               Calculate
             </Button>
@@ -119,8 +114,8 @@ function CustomPrice({ game, tokens, setSelectValues }: CustomPriceProps) {
       </Grid>
       {open && (
         <>
-          {tokens?.map((token: string) => (
-            <Grid key={token} item xs={12} sm={4}>
+          {customTokens?.map((token: CustomTokenPrice) => (
+            <Grid key={token?.tokenName} item xs={12} sm={4}>
               <Box
                 display="flex"
                 justifyContent="center"
@@ -128,15 +123,21 @@ function CustomPrice({ game, tokens, setSelectValues }: CustomPriceProps) {
                 gap="7px"
               >
                 <Image
-                  src={`/${game}/${token}.png`}
-                  alt={token}
+                  src={`/${game}/${token?.tokenName}.png`}
+                  alt={token?.tokenName}
                   width={25}
                   height={25}
                 />
                 <TextField
                   color="primary"
                   focused
+                  name={token?.tokenName}
                   sx={{ color: "text.primary" }}
+                  value={token?.value}
+                  InputProps={{ inputProps: { min: 0 } }}
+                  onChange={handleChange}
+                  type="number"
+                  placeholder="0"
                 />
                 <Typography variant="body1">WAX</Typography>
               </Box>

@@ -8,6 +8,8 @@ interface MutableInfo {
     mining: number;
     recUse: number;
     regUse: number;
+    craftRecUse: number;
+    craftRegUse: number;
   };
 }
 
@@ -59,49 +61,63 @@ export const getPublicContent = async (): Promise<AssetInfo[]> => {
 
 export const magneto: MutableInfo = {
   ["443357"]: {
-    mining: 5,
-    recUse: 10,
-    regUse: 1.5,
+    mining: 13,
+    recUse: 5.6,
+    regUse: 3,
+    craftRecUse: 7200,
+    craftRegUse: 1200,
   },
   ["443358"]: {
-    mining: 5,
-    recUse: 10,
-    regUse: 1.5,
+    mining: 42,
+    recUse: 15,
+    regUse: 9,
+    craftRecUse: 21600,
+    craftRegUse: 3600,
   },
 };
 
 export const drilloid: MutableInfo = {
-  ["443353"]: {
-    mining: 5,
-    recUse: 10,
-    regUse: 1.5,
-  },
+  // ["443353"]: {
+  //   mining: 5,
+  //   recUse: 10,
+  //   regUse: 1.5,
+  // },
   ["443354"]: {
-    mining: 5,
-    recUse: 10,
-    regUse: 1.5,
+    mining: 18,
+    recUse: 5.4,
+    regUse: 0.6,
+    craftRecUse: 7920,
+    craftRegUse: 1320,
   },
   ["443355"]: {
-    mining: 5,
-    recUse: 10,
-    regUse: 1.5,
+    mining: 55,
+    recUse: 15,
+    regUse: 1.2,
+    craftRecUse: 23760,
+    craftRegUse: 3960,
   },
 };
 
 export const spark: MutableInfo = {
   ["443350"]: {
-    mining: 5,
-    recUse: 10,
-    regUse: 1.5,
+    mining: 7,
+    recUse: 0,
+    regUse: 1.2,
+    craftRecUse: 2000,
+    craftRegUse: 350,
   },
   ["443351"]: {
-    mining: 5,
-    recUse: 10,
-    regUse: 1.5,
+    mining: 23,
+    recUse: 0,
+    regUse: 3.6,
+    craftRecUse: 6000,
+    craftRegUse: 1000,
   },
   ["443352"]: {
-    mining: 5,
-    recUse: 10,
-    regUse: 1.5,
+    mining: 76,
+    recUse: 0,
+    regUse: 10.8,
+    craftRecUse: 18000,
+    craftRegUse: 3000,
   },
 };

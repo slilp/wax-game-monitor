@@ -65,7 +65,7 @@ function CardGame({
           </Typography>
         </Box>
         <Box height="5px"></Box>
-        {craftWax !== 0 && (
+        {craftTokens.length !== 0 && (
           <>
             <Typography variant="body2">Crafting Cost</Typography>
             {craftTokens.map(
@@ -85,10 +85,11 @@ function CardGame({
                 )
             )}
             <Typography variant="body2">{craftWax.toFixed(0)} WAX</Typography>
-            <Typography variant="body2">{craftCurrency.toFixed(0)}</Typography>
+            <Typography variant="body2">
+              {craftCurrency.toFixed(0)} {currency}
+            </Typography>
           </>
         )}
-
         <Box display="flex" flexDirection="row" gap="5px" mt="5px">
           <Image src={`/atomic.svg`} alt="atomic_logo" width={15} height={15} />
           <Typography variant="body2">AtomicHub</Typography>
