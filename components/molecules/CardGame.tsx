@@ -51,7 +51,7 @@ function CardGame({
     <Box display="flex">
       <img
         alt={id}
-        src={`data:image/jpeg;charset=utf-8;base64,${base64}`}
+        src={img}
         crossOrigin="anonymous"
         style={{
           objectFit: "contain",
