@@ -1,10 +1,12 @@
 import "../styles/globals.css";
+import { Suspense } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { MDXProvider } from "@mdx-js/react";
 import type { AppProps } from "next/app";
 import { store } from "../redux/store";
 import { Provider } from "react-redux";
 import { Layout } from "../components/organisms";
+// import "../views/i18n";
 
 const theme = createTheme({
   palette: {

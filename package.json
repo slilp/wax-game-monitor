@@ -17,10 +17,13 @@
     "@reduxjs/toolkit": "^1.7.2",
     "@waxio/waxjs": "^1.0.4",
     "axios": "^0.25.0",
+    "i18next": "^21.6.13",
+    "i18next-http-backend": "^1.3.2",
     "next": "12.0.8",
     "next-mdx-remote": "^3.0.8",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-i18next": "^11.15.5",
     "react-icons": "^4.3.1",
     "react-redux": "^7.2.6",
     "swr": "^1.2.1"

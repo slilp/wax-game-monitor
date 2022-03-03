@@ -71,7 +71,12 @@ function CardGame({
             {craftTokens.map(
               (token: CraftTokens) =>
                 token.amount > 0 && (
-                  <Box display="flex" flexDirection="row" gap="5px">
+                  <Box
+                    key={token?.name}
+                    display="flex"
+                    flexDirection="row"
+                    gap="5px"
+                  >
                     <Image
                       src={`/${game}/${token.name}.png`}
                       alt={token.name}

@@ -25,9 +25,9 @@ function HeaderData() {
             GAMING MONITOR
           </GradientText>
           <Typography variant="body1">
-            We provide useful services for the WAX gaming player where you can
-            view the ROI , planning your strategy and guiding how to play each
-            game.
+            We provide useful services for the WAX gaming players where you can
+            view the profit , planning your strategy and guiding how to play
+            each game.
           </Typography>
         </Box>
       </Grid>

@@ -3,6 +3,8 @@ import { getAssetSale } from "../atomic";
 export const spxCode = "spacecraftxc";
 export const seaCode = "seafarmersio";
 export const roboCode = "roboempireio";
+export const galaxyCode = "galaxyminerx";
+
 export const getInGameData = ({ code, wallet }: GetInGameProps) => {};
 
 export const getAtomicSalePrice = async (

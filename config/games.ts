@@ -103,6 +103,20 @@ const games: Game[] = [
     calculator: `${baseCalculatorUrl}roboempireio`,
     game: `${baseGameUrl}roboempireio`,
   },
+  {
+    id: "007",
+    name: "galaxyminerx",
+    label: "Galaxy Miners",
+    desc: "Galaxy Miners is a NFT Play To Earn (P2E) Game with a tokenized economy. The players can explore the vast galaxies. As humans go further into technology time traveling will soon be discovered.",
+    logo: "galaxyminerx.png",
+    web: "https://roboempire.io",
+    discord: "http://discord.gg/galaxyminerx",
+    atomic: "https://wax.atomichub.io/explorer/collection/galaxyminerx",
+    how: `${baseHowToUrl}galaxyminerx`,
+    statistic: `${baseStatisticUrl}galaxyminerx`,
+    calculator: `${baseCalculatorUrl}galaxyminerx`,
+    game: `${baseGameUrl}galaxyminerx`,
+  },
 ];
 
 export default games;
