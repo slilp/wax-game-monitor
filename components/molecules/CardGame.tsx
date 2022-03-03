@@ -40,6 +40,7 @@ function CardGame({
       <img
         alt={id}
         src={img + "?test=123"}
+        crossOrigin="anonymous"
         style={{
           objectFit: "contain",
           width: "150px",
