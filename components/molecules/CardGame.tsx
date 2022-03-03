@@ -39,7 +39,7 @@ function CardGame({
     <Box display="flex">
       <img
         alt={id}
-        src={img}
+        src={img + "?test=123"}
         style={{
           objectFit: "contain",
           width: "150px",
