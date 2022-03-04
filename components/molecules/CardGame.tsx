@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import { Box, Typography } from "@mui/material";
-import axios from "axios";
 interface CraftTokens {
   name: string;
   amount: number;
@@ -35,24 +34,11 @@ function CardGame({
   game,
   currency,
 }: CardGameProps) {
-  const [base64, setBase64] = useState<any>();
-
-  useEffect(() => {
-    axios
-      .get(img, {
-        responseType: "arraybuffer",
-      })
-      .then((response) =>
-        setBase64(Buffer.from(response.data, "binary").toString("base64"))
-      );
-  }, []);
-
   return (
     <Box display="flex">
       <img
         alt={id}
         src={img}
-        crossOrigin="anonymous"
         style={{
           objectFit: "contain",
           width: "150px",

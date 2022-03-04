@@ -74,7 +74,7 @@ const mapToPublicContent = async (rawData: any): Promise<AssetInfo[]> => {
         immutableData: {
           ...item,
           ...tempData?.immutable_data,
-          img: `${imageUrl}/${tempData?.immutable_data?.img}`,
+          img: `/${spxCode}/${tempData?.immutable_data?.img}.png`,
         },
         mutableData: tempData?.mutable_data,
       });

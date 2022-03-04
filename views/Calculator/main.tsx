@@ -41,15 +41,16 @@ function MainCalculator() {
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <Box display="flex" gap="10px" flexWrap="wrap">
-                    <Link href={item.how} passHref={true}>
-                      <Button
-                        variant="contained"
-                        sx={{ color: "white" }}
-                        startIcon={<AssignmentIcon />}
-                      >
-                        How to play
-                      </Button>
-                    </Link>
+                    {/* <Link href={item.how} passHref={true}> */}
+                    <Button
+                      variant="contained"
+                      sx={{ color: "white" }}
+                      startIcon={<AssignmentIcon />}
+                      onClick={() => alert("Not available now")}
+                    >
+                      How to play
+                    </Button>
+                    {/* </Link> */}
                     <Link href={item.calculator} passHref={true}>
                       <Button
                         variant="contained"
