@@ -14,7 +14,7 @@ export interface Game {
 }
 
 const baseHowToUrl = "/how-to/";
-const baseStatisticUrl = "/statistic/";
+const baseStatisticUrl = "/stat/";
 const baseCalculatorUrl = "/calculator/";
 const baseGameUrl = "/game/";
 

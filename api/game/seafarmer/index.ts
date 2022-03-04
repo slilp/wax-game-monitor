@@ -1,9 +1,9 @@
-import { RequestGetTableRows } from "../../eos/modal";
-import { getTableRow } from "../../eos";
+import { RequestGetHistory } from "../../eos/modal";
+import { getHistory } from "../../eos";
 import { getAllAssetByGame, imageUrl } from "../../atomic";
 import { AtomicAssetInfo } from "../../atomic/modal";
 import { AssetInfo } from "../modal";
-import { seaCode } from "../../game";
+import { seaCode, spxCode } from "../../game";
 
 interface MutableInfo {
   [key: string]: {
@@ -11,6 +11,20 @@ interface MutableInfo {
     Power: number;
   };
 }
+
+const CONTRACT = "sfblockchain";
+
+export const getActiveUserHistory = (
+  skip: number,
+  limit: number,
+  after: string
+): RequestGetHistory => ({
+  account: CONTRACT,
+  filter: `${CONTRACT}:mine`,
+  skip,
+  limit,
+  after,
+});
 
 const mapToPublicContent = async (): Promise<AssetInfo[]> => {
   let result: AssetInfo[] = [];
@@ -46,6 +60,15 @@ const mapToPublicContent = async (): Promise<AssetInfo[]> => {
 export const getPublicContent = async (): Promise<AssetInfo[]> => {
   const result = await mapToPublicContent();
   return result;
+};
+
+export const getActiveUser = async (
+  skip: number,
+  limit: number,
+  after: string
+): Promise<any[]> => {
+  const result = await getHistory(getActiveUserHistory(skip, limit, after));
+  return result?.data?.actions;
 };
 
 // export const getWalletContent = async (wallet: string): Promise<any> =>

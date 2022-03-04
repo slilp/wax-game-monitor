@@ -44,7 +44,7 @@ const lists: ListItem[] = [
     label: "Calculator",
     icon: <AttachMoneyIcon />,
     url: "/calculator",
-    match: ["calculator", "how-to"],
+    match: ["calculator", "how-to", "stat"],
   },
   {
     key: "port",

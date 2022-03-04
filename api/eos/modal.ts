@@ -12,6 +12,14 @@ export interface GetTableRows {
   limit: number;
 }
 
+export interface RequestGetHistory {
+  account: string;
+  filter: string;
+  skip: number;
+  limit: number;
+  after: string;
+}
+
 export interface RequestGetTableRows {
   code: string;
   table: string;

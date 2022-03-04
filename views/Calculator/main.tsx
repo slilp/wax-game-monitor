@@ -60,14 +60,16 @@ function MainCalculator() {
                         Calculator
                       </Button>
                     </Link>
-                    <Button
-                      variant="contained"
-                      sx={{ color: "white" }}
-                      startIcon={<EqualizerIcon />}
-                      onClick={() => alert("Not available now")}
-                    >
-                      Statistic
-                    </Button>
+                    <Link href={item.statistic} passHref={true}>
+                      <Button
+                        variant="contained"
+                        sx={{ color: "white" }}
+                        startIcon={<EqualizerIcon />}
+                        // onClick={() => alert("Not available now")}
+                      >
+                        Statistic
+                      </Button>
+                    </Link>
                   </Box>
                 </Grid>
               </Grid>

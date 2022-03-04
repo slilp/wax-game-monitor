@@ -1,8 +1,14 @@
 import axios from "axios";
-import { GetTableRows, RequestGetTableRows, BalanceResponse } from "./modal";
+import {
+  GetTableRows,
+  RequestGetTableRows,
+  BalanceResponse,
+  RequestGetHistory,
+} from "./modal";
 
 const baseUrl = "https://chain.wax.io/v1/chain";
 const eosamsterdamUrl = "https://lightapi.eosamsterdam.net";
+const chainUrl = "https://api.waxsweden.org";
 
 export const getBalance = (wallet: string) =>
   axios.get<BalanceResponse>(`${eosamsterdamUrl}/api/balances/wax/${wallet}`);
@@ -29,4 +35,23 @@ export const getTableRow = ({
     limit: limit,
   };
   return axios.post(`${baseUrl}/get_table_rows`, request);
+};
+
+export const getHistory = ({
+  account,
+  filter,
+  limit = 100,
+  skip = 0,
+  after,
+}: RequestGetHistory) => {
+  const params = {
+    account,
+    filter,
+    limit,
+    skip,
+    after,
+    sort: "asc",
+  };
+
+  return axios.get(`${chainUrl}/v2/history/get_actions`, { params });
 };
