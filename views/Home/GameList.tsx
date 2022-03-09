@@ -85,7 +85,7 @@ function GameList() {
                 justifyContent="end"
               >
                 <Divide />
-                <Link href={item.game} passHref={true}>
+                <Link href={item.calculator} passHref={true}>
                   <Button
                     variant="contained"
                     sx={{ minWidth: "90%", color: "white" }}

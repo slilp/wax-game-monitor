@@ -64,6 +64,36 @@ function CardGame({
           </Typography>
         </Box>
         <Box height="5px"></Box>
+        {atomicWax != 0 && dailyWax > 0 && (
+          <>
+            <Box
+              bgcolor={dailyWax < 0 ? "red" : "#EA923E"}
+              borderRadius="25px"
+              textAlign="center"
+              p="5px"
+            >
+              <Typography variant="body2">
+                ROI Atomic : {(atomicWax / dailyWax).toFixed(0)} Day
+              </Typography>
+            </Box>
+            <Box height="5px"></Box>
+          </>
+        )}
+        {craftTokens.length != 0 && dailyWax > 0 && (
+          <>
+            <Box
+              bgcolor="#1263f1"
+              borderRadius="25px"
+              textAlign="center"
+              p="5px"
+            >
+              <Typography variant="body2">
+                ROI Crafting : {(craftWax / dailyWax).toFixed(0)} Day
+              </Typography>
+            </Box>
+            <Box height="5px"></Box>
+          </>
+        )}
         {craftTokens.length !== 0 && (
           <>
             <Typography variant="body2">Crafting Cost</Typography>

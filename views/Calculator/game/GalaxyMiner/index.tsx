@@ -36,6 +36,14 @@ function GalaxyMiner({ assets }: { assets: AssetInfo[] }) {
         </Grid>
       </Grid>
       <Box height="25px"></Box>
+      <Grid container spacing={3}>
+        {/* Calculate by wallet */}
+        <Grid item xs={12}>
+          {/* <ToolSection assets={assets}></ToolSection> */}
+        </Grid>
+      </Grid>
+
+      <Box height="25px"></Box>
 
       <Grid container spacing={3}>
         {/* Tool section */}
