@@ -37,7 +37,7 @@ function CardGame({
   craftTokens = [],
   game,
   currency,
-  minted,
+  minted = 0,
 }: CardGameProps) {
   const dispatch = useAppDispatch();
 

@@ -4,16 +4,10 @@ import Image from "next/image";
 import { galaxyCode } from "../../../../api/game";
 import { AssetInfo } from "../../../../api/game/modal";
 import { HeaderPrice, Simulator } from "../../../../components/molecules";
-import { CardGameProps } from "../../../../components/molecules/CardGame";
 import ToolSection from "./component/ToolSection";
 import { GalaxyTokens } from "./const";
 
-interface TempDataAsset {
-  [key: string]: CardGameProps;
-}
-
 function GalaxyMiner({ assets }: { assets: AssetInfo[] }) {
-  const [tempData, setTempData] = useState<TempDataAsset[]>([]);
   return (
     <div>
       <Box height="25px"></Box>

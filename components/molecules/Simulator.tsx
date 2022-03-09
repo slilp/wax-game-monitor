@@ -141,7 +141,7 @@ function Simulator() {
       {open && (
         <Grid container spacing={3}>
           {assetData.map((item) => (
-            <Grid item xs={12} sm={3}>
+            <Grid item xs={12} sm={3} key={item.id}>
               <Box display="flex" gap="15px">
                 <Box>
                   <Image
