@@ -23,7 +23,7 @@ function MainCalculator() {
           <Grid key={item.id} item xs={12} sm={6}>
             <Box bgcolor="rgba(39, 55, 85, 0.75)" borderRadius="25px" p="15px">
               <Grid container spacing={2}>
-                <Grid item xs={6} sm={4}>
+                <Grid item xs={6} md={4}>
                   <Box width="125px" overflow="hidden" borderRadius="25px">
                     <Image
                       src={`/${item.name}/${item.logo}`}
@@ -34,12 +34,12 @@ function MainCalculator() {
                     />
                   </Box>
                 </Grid>
-                <Grid item xs={6} sm={4}>
+                <Grid item xs={6} md={4}>
                   <Box display="flex" height="100%" alignItems="center">
                     <Typography variant="h6">{item.label}</Typography>
                   </Box>
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                <Grid item xs={12} md={4}>
                   <Box display="flex" gap="10px" flexWrap="wrap">
                     {/* <Link href={item.how} passHref={true}> */}
                     <Button

@@ -27,16 +27,17 @@ function GameList() {
             <Box
               component="div"
               borderRadius="25px 25px 0 0"
-              height="175px"
+              minHeight="175px"
               bgcolor="rgba(39, 55, 85, 0.75)"
               p="10px"
             >
-              <Grid container wrap="nowrap">
-                <Grid item xs={6}>
+              <Grid container spacing="1">
+                <Grid item xs={12} md={6}>
                   <Box
                     width="150px"
                     sx={{ borderRadius: "50%" }}
                     overflow="hidden"
+                    m="auto"
                   >
                     <Image
                       src={`/${item.name}/${item.logo}`}
@@ -47,7 +48,7 @@ function GameList() {
                     />
                   </Box>
                 </Grid>
-                <Grid item xs={6} zeroMinWidth>
+                <Grid item xs={12} md={6}>
                   <Box
                     display="flex"
                     alignItems="center"

@@ -117,7 +117,7 @@ function SubSectionTool({ prices, assetData }: SubSectionToolProps) {
   };
 
   return (
-    <Grid key={assetData?.id} item xs={12} sm={4}>
+    <Grid key={assetData?.id} item xs={12} sm={6} md={4}>
       <CardGame
         id={assetData?.id}
         img={assetData?.immutableData?.img}
