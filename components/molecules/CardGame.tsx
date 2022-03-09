@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { Box, Typography } from "@mui/material";
+import { useAppDispatch } from "../../redux/hook";
+import { add as addTempAsset } from "../../redux/reducer/assetSlice";
+
 interface CraftTokens {
   name: string;
   amount: number;
 }
-interface CardGameProps {
+export interface CardGameProps {
   id: string;
   name: string;
   img: string;
@@ -18,6 +21,7 @@ interface CardGameProps {
   currency: string;
   craftTokens: CraftTokens[];
   game: string;
+  minted: number;
 }
 
 function CardGame({
@@ -33,18 +37,40 @@ function CardGame({
   craftTokens = [],
   game,
   currency,
+  minted,
 }: CardGameProps) {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    console.log("count");
+    dispatch(
+      addTempAsset({
+        id: id,
+        name: name,
+        image: img,
+        profit: {
+          wax: dailyWax,
+          thb: dailyCurrency,
+        },
+      })
+    );
+  }, [dailyWax, dailyCurrency]);
+
   return (
     <Box display="flex">
-      <img
-        alt={id}
-        src={img}
-        style={{
-          objectFit: "contain",
-          width: "150px",
-          height: "150px",
-        }}
-      ></img>
+      <Box display="flex" flexDirection="column" gap="10px" textAlign="center">
+        <img
+          alt={id}
+          src={img}
+          style={{
+            objectFit: "contain",
+            width: "150px",
+            height: "150px",
+          }}
+        ></img>
+        <Typography variant="body2">Minted {minted}</Typography>
+      </Box>
+
       <Box display="flex" flexDirection="column" gap="5px" width="50%">
         <Typography variant="body1" sx={{ fontWeight: "bold" }}>
           {name}

@@ -50,6 +50,7 @@ const mapToPublicContent = async (): Promise<AssetInfo[]> => {
         mutableData: {
           ...mutableData,
         },
+        minted: item?.issued_supply || 0,
       });
     });
   }

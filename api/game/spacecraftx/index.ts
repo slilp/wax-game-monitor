@@ -77,6 +77,7 @@ const mapToPublicContent = async (rawData: any): Promise<AssetInfo[]> => {
           img: `/${spxCode}/${tempData?.immutable_data?.img}.png`,
         },
         mutableData: tempData?.mutable_data,
+        minted: tempData?.issued_supply || 0,
       });
     });
   }

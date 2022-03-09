@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import waxSlice from "./reducer/waxSlice";
 import accountSlice from "./reducer/accountSlice";
+import assetSlice from "./reducer/assetSlice";
 
 export const store = configureStore({
   reducer: {
     wax: waxSlice,
     account: accountSlice,
+    asset: assetSlice,
   },
 });
 

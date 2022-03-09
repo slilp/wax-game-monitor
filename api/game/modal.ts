@@ -7,4 +7,5 @@ export interface AssetInfo {
   id: string;
   immutableData?: any;
   mutableData?: any;
+  minted: number;
 }

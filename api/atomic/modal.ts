@@ -7,6 +7,7 @@ export interface AtomicAssetInfo {
   template_id: string;
   immutable_data: any;
   mutable_data: any;
+  issued_supply: number;
 }
 
 export interface AtomicSale {

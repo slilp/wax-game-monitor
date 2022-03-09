@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useAppSelector, useAppDispatch } from "../../../redux/hook";
+import { useAppDispatch } from "../../../redux/hook";
 import { storePriceData } from "../../../redux/reducer/waxSlice";
 import { Container, Box } from "@mui/material";
 import useWax from "../../../hook/useWax";

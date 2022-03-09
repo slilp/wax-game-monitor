@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Grid } from "@mui/material";
 import Image from "next/image";
 import { galaxyCode } from "../../../../api/game";
 import { AssetInfo } from "../../../../api/game/modal";
-import { HeaderPrice } from "../../../../components/molecules";
+import { HeaderPrice, Simulator } from "../../../../components/molecules";
+import { CardGameProps } from "../../../../components/molecules/CardGame";
 import ToolSection from "./component/ToolSection";
 import { GalaxyTokens } from "./const";
 
+interface TempDataAsset {
+  [key: string]: CardGameProps;
+}
+
 function GalaxyMiner({ assets }: { assets: AssetInfo[] }) {
+  const [tempData, setTempData] = useState<TempDataAsset[]>([]);
   return (
     <div>
       <Box height="25px"></Box>
@@ -36,12 +42,7 @@ function GalaxyMiner({ assets }: { assets: AssetInfo[] }) {
         </Grid>
       </Grid>
       <Box height="25px"></Box>
-      <Grid container spacing={3}>
-        {/* Calculate by wallet */}
-        <Grid item xs={12}>
-          {/* <ToolSection assets={assets}></ToolSection> */}
-        </Grid>
-      </Grid>
+      <Simulator />
 
       <Box height="25px"></Box>
 

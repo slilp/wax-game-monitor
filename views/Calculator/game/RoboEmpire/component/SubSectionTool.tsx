@@ -136,6 +136,7 @@ function SubSectionTool({ prices, assetData }: SubSectionToolProps) {
         currency="THB"
         craftTokens={craftTokens}
         game={roboCode}
+        minted={assetData.minted}
       ></CardGame>
     </Grid>
   );
