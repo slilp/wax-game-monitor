@@ -1,6 +1,6 @@
-import { getAllAssetByGame, imageUrl } from "../../atomic";
+import { getAllAssetByGame } from "../../atomic";
 import { AtomicAssetInfo } from "../../atomic/modal";
-import { AssetInfo } from "../modal";
+import { AssetInfo, AssetWithProfit } from "../modal";
 import { galaxyCode } from "../../game";
 
 interface MutableInfo {

@@ -9,3 +9,10 @@ export interface AssetInfo {
   mutableData?: any;
   minted: number;
 }
+
+export interface AssetWithProfit extends AssetInfo {
+  profit: {
+    wax: number;
+    thb: number;
+  };
+}

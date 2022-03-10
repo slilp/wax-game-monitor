@@ -46,13 +46,13 @@ const lists: ListItem[] = [
     url: "/calculator",
     match: ["calculator", "how-to", "stat"],
   },
-  // {
-  //   key: "port",
-  //   label: "Port",
-  //   icon: <AccountBalanceWalletIcon />,
-  //   url: "/me",
-  //   match: ["me"],
-  // },
+  {
+    key: "port",
+    label: "Port",
+    icon: <AccountBalanceWalletIcon />,
+    url: "/me",
+    match: ["me"],
+  },
 ];
 
 const CustomDrawer = styled(Drawer)(({ theme }) => ({
