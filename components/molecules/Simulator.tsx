@@ -60,7 +60,7 @@ interface SimulationState {
   amount: number;
 }
 
-function Simulator() {
+function Simulator({ assets }: { assets: string[] }) {
   const [simuData, setSimuData] = useState<SimulationState[]>([]);
   const [open, setOpen] = useState<boolean>(false);
   const assetData = useAppSelector((state) => state.asset);
@@ -140,39 +140,41 @@ function Simulator() {
       <Box height="15px"></Box>
       {open && (
         <Grid container spacing={3}>
-          {assetData.map((item) => (
-            <Grid item xs={12} sm={3} key={item.id}>
-              <Box display="flex" gap="15px">
-                <Box>
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    width={50}
-                    height={75}
-                  />
+          {assetData
+            .filter((i) => assets.includes(i.id))
+            .map((item) => (
+              <Grid item xs={12} sm={3} key={item.id}>
+                <Box display="flex" gap="15px">
+                  <Box>
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      width={50}
+                      height={75}
+                    />
+                  </Box>
+                  <Box>
+                    <Typography variant="body2">Amount</Typography>
+                    <TextField
+                      color="primary"
+                      focused
+                      size="small"
+                      sx={{ color: "text.primary" }}
+                      name={item.id}
+                      value={
+                        simuData.find((i) => i.id === item.id)
+                          ? simuData.find((i) => i.id === item.id)?.amount
+                          : 0
+                      }
+                      onChange={handleChange}
+                      InputProps={{ inputProps: { min: 0 } }}
+                      type="number"
+                      placeholder="0"
+                    />
+                  </Box>
                 </Box>
-                <Box>
-                  <Typography variant="body2">Amount</Typography>
-                  <TextField
-                    color="primary"
-                    focused
-                    size="small"
-                    sx={{ color: "text.primary" }}
-                    name={item.id}
-                    value={
-                      simuData.find((i) => i.id === item.id)
-                        ? simuData.find((i) => i.id === item.id)?.amount
-                        : 0
-                    }
-                    onChange={handleChange}
-                    InputProps={{ inputProps: { min: 0 } }}
-                    type="number"
-                    placeholder="0"
-                  />
-                </Box>
-              </Box>
-            </Grid>
-          ))}
+              </Grid>
+            ))}
           <Grid item xs={12}>
             <Box textAlign="center" width="50%" m="auto">
               <Box

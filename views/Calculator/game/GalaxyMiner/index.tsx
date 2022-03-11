@@ -5,7 +5,7 @@ import { galaxyCode } from "../../../../api/game";
 import { AssetInfo } from "../../../../api/game/modal";
 import { HeaderPrice, Simulator } from "../../../../components/molecules";
 import ToolSection from "./component/ToolSection";
-import { GalaxyTokens } from "./const";
+import { GalaxyTokens, asteroid, plasma, oxygen } from "./const";
 
 function GalaxyMiner({ assets }: { assets: AssetInfo[] }) {
   return (
@@ -36,7 +36,7 @@ function GalaxyMiner({ assets }: { assets: AssetInfo[] }) {
         </Grid>
       </Grid>
       <Box height="25px"></Box>
-      <Simulator />
+      <Simulator assets={asteroid.concat(plasma).concat(oxygen)} />
 
       <Box height="25px"></Box>
 

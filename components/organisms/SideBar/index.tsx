@@ -70,10 +70,10 @@ function SideBar({
   openMenu: boolean;
   setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  const { login, logout } = useWaxTransaction();
+  // const { login, logout } = useWaxTransaction();
   const router = useRouter();
   const path = router.pathname.split("/")[0] + router.pathname.split("/")[1];
-  const accountData = useAppSelector((state) => state.account);
+  // const accountData = useAppSelector((state) => state.account);
   const handleDrawerToggle = () => {
     setOpenMenu(false);
   };
@@ -105,7 +105,7 @@ function SideBar({
                 objectFit="cover"
               />
             </Box>
-            {accountData?.wallet ? (
+            {/* {accountData?.wallet ? (
               <Box
                 width="100%"
                 display="flex"
@@ -148,7 +148,7 @@ function SideBar({
                   LOGIN
                 </Button>
               </Box>
-            )}
+            )} */}
           </Box>
         </Box>
         {/* <Divider /> */}
@@ -258,7 +258,7 @@ function SideBar({
                 objectFit="cover"
               />
             </Box>
-            {accountData?.wallet ? (
+            {/* {accountData?.wallet ? (
               <Box
                 width="100%"
                 display="flex"
@@ -301,7 +301,7 @@ function SideBar({
                   LOGIN
                 </Button>
               </Box>
-            )}
+            )} */}
           </Box>
         </Box>
         {/* <Divider /> */}

@@ -21,8 +21,8 @@ export default function NavBar({
 }: {
   setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  const { login, logout } = useWaxTransaction();
-  const accountData = useAppSelector((state) => state.account);
+  // const { login, logout } = useWaxTransaction();
+  // const accountData = useAppSelector((state) => state.account);
 
   return (
     <Box sx={{ lexGrowf: 1, display: { xs: "block", md: "none" } }}>
@@ -41,7 +41,7 @@ export default function NavBar({
             <MenuIcon />
           </IconButton>
           <Box borderRadius="50%" overflow="hidden" flexGrow="1"></Box>
-          <Box sx={{ textAlign: "center" }}>
+          {/* <Box sx={{ textAlign: "center" }}>
             {accountData?.wallet ? (
               <Box
                 display="flex"
@@ -82,7 +82,7 @@ export default function NavBar({
                 </Button>
               </Box>
             )}
-          </Box>
+          </Box> */}
         </Toolbar>
       </AppBar>
     </Box>
