@@ -19,7 +19,8 @@ import { Button } from "../../atomic";
 import HomeIcon from "@mui/icons-material/Home";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import { FaDiscord, FaGoogle, FaGift } from "react-icons/fa";
+import { FaGift } from "react-icons/fa";
+import { FaCoffee } from "react-icons/fa";
 
 import LogoutIcon from "@mui/icons-material/Logout";
 import useWaxTransaction from "../../../hook/useWaxTransaction";
@@ -96,14 +97,22 @@ function SideBar({
             alignItems="center"
             gap="10px"
           >
-            <Box borderRadius="50%" overflow="hidden">
-              <Image
-                src="/wax.jpeg"
-                alt="wax"
-                width={110}
-                height={110}
-                objectFit="cover"
-              />
+            <Typography variant="body2" sx={{ color: "white" }}>
+              Buy me a coffee
+            </Typography>
+            <Box
+              display="flex"
+              gap="10px"
+              justifyContent="center"
+              bgcolor="#1263f1"
+              borderRadius="25px"
+            >
+              <Typography variant="h6" sx={{ color: "white" }}>
+                <FaCoffee></FaCoffee>
+              </Typography>
+              <Typography variant="body1" sx={{ color: "white" }}>
+                giwxm.wam
+              </Typography>
             </Box>
             {/* {accountData?.wallet ? (
               <Box
@@ -184,56 +193,6 @@ function SideBar({
             ))}
           </List>
         </Box>
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="end"
-          flexGrow="1"
-          mb="30px"
-        >
-          <Box height="1.25px" bgcolor="#ffffff"></Box>
-          <br></br>
-          <Box display="flex" justifyContent="space-around">
-            <Box>
-              <Typography
-                variant="body2"
-                sx={{ color: "white", cursor: "pointer" }}
-              >
-                Donate{" "}
-              </Typography>
-
-              {/* <Typography
-                variant="h6"
-                sx={{ color: "white", cursor: "pointer" }}
-              >
-                <FaDiscord></FaDiscord>
-              </Typography> */}
-            </Box>
-            <Box>
-              {/* <Typography
-                variant="h6"
-                sx={{ color: "white", cursor: "pointer" }}
-              >
-                <FaGoogle></FaGoogle>
-              </Typography> */}
-              <Typography
-                variant="h6"
-                sx={{ color: "white", cursor: "pointer" }}
-              >
-                <FaGift></FaGift>
-              </Typography>
-            </Box>
-            <Box>
-              <Typography
-                variant="body2"
-                sx={{ color: "white", cursor: "pointer" }}
-              >
-                {/* <FaGift></FaGift> */}
-                giwxm.wam
-              </Typography>
-            </Box>
-          </Box>
-        </Box>
       </CustomDrawer>
       <CustomDrawer
         anchor="left"
@@ -249,15 +208,18 @@ function SideBar({
             alignItems="center"
             gap="10px"
           >
-            <Box borderRadius="50%" overflow="hidden">
-              <Image
-                src="/wax.jpeg"
-                alt="wax"
-                width={110}
-                height={110}
-                objectFit="cover"
-              />
+            <Typography variant="body2" sx={{ color: "white" }}>
+              Buy me a coffee
+            </Typography>
+            <Box display="flex" gap="10px" justifyContent="center">
+              <Typography variant="h6" sx={{ color: "white" }}>
+                <FaCoffee></FaCoffee>
+              </Typography>
+              <Typography variant="body1" sx={{ color: "white" }}>
+                giwxm.wam
+              </Typography>
             </Box>
+
             {/* {accountData?.wallet ? (
               <Box
                 width="100%"
@@ -336,7 +298,7 @@ function SideBar({
             ))}
           </List>
         </Box>
-        <Box
+        {/* <Box
           display="flex"
           flexDirection="column"
           justifyContent="end"
@@ -348,42 +310,24 @@ function SideBar({
           <Box display="flex" justifyContent="space-around">
             <Box>
               <Typography
-                variant="body2"
-                sx={{ color: "white", cursor: "pointer" }}
-              >
-                Donate{" "}
-              </Typography>
-              {/* <Typography
                 variant="h6"
                 sx={{ color: "white", cursor: "pointer" }}
               >
                 <FaDiscord></FaDiscord>
-              </Typography> */}
+              </Typography>
             </Box>
             <Box>
-              {/* <Typography
+              <Typography
                 variant="h6"
                 sx={{ color: "white", cursor: "pointer" }}
               >
                 <FaGoogle></FaGoogle>
-              </Typography> */}
-              <Typography
-                variant="h6"
-                sx={{ color: "white", cursor: "pointer" }}
-              >
-                <FaGift></FaGift>
               </Typography>
             </Box>
             <Box>
-              <Typography
-                variant="body2"
-                sx={{ color: "white", cursor: "pointer" }}
-              >
-                giwxm.wam
-              </Typography>
             </Box>
           </Box>
-        </Box>
+        </Box> */}
       </CustomDrawer>
     </>
   );

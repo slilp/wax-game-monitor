@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from "next/head";
 import { useAppDispatch } from "../../../redux/hook";
 import { storePriceData } from "../../../redux/reducer/waxSlice";
 import { Container, Box } from "@mui/material";
@@ -28,6 +29,10 @@ function Layout({ children }: any) {
 
   return (
     <>
+      <Head>
+        <title>WAX Game Monitor</title>
+        <link rel="shortcut icon" href="/tokens/WAX.png" />
+      </Head>
       <NavBar setOpenMenu={setOpenMenu}></NavBar>
       <Box display="flex">
         <Box component="nav">

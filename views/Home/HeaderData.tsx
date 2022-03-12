@@ -6,7 +6,8 @@ import Image from "next/image";
 function HeaderData() {
   return (
     <Grid container>
-      <Grid item xs={12} sm={6} order={{ xs: 2, sm: 1 }}>
+      <Grid item xs={12} sm={2}></Grid>
+      <Grid item xs={12} sm={8}>
         <Box
           minHeight="300px"
           p="10px"
@@ -31,7 +32,8 @@ function HeaderData() {
           </Typography>
         </Box>
       </Grid>
-      <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
+      <Grid item xs={12} sm={2}></Grid>
+      {/* <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
         <Box
           display="flex"
           justifyContent="center"
@@ -48,7 +50,7 @@ function HeaderData() {
             />
           </Box>
         </Box>
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 }

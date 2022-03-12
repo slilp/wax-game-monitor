@@ -92,6 +92,7 @@ function Port() {
           color="primary"
           focused
           value={walletValue}
+          placeholder="Your wallet"
           onChange={(e) => setWalletValue(e.target.value)}
           inputProps={{ maxLength: 20 }}
           sx={{

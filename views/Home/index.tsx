@@ -9,7 +9,7 @@ function Home() {
       <HeaderData />
       <br></br>
       <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-        Game List We Support
+        Game Lists We Support
       </Typography>
       <GameList />
     </Box>
