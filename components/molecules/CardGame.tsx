@@ -42,7 +42,6 @@ function CardGame({
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    console.log("count");
     dispatch(
       addTempAsset({
         id: id,
