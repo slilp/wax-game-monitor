@@ -47,7 +47,7 @@ function PortCard({ wallet, deleteWallet, isHighValue }: PortCardProps) {
             <Box
               display="flex"
               alignItems="center"
-              justifyContent="end"
+              justifyContent="flex-end"
               sx={{
                 cursor: "pointer",
                 "&:hover": {

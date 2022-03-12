@@ -116,7 +116,7 @@ function Port() {
           mt="15px"
           gap="10px"
           alignItems="center"
-          justifyContent="end"
+          justifyContent="flex-end"
         >
           <Typography variant="body2">Hide small balances</Typography>
           <AntSwitch
