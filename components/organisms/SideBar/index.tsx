@@ -100,13 +100,7 @@ function SideBar({
             <Typography variant="body2" sx={{ color: "white" }}>
               Buy me a coffee
             </Typography>
-            <Box
-              display="flex"
-              gap="10px"
-              justifyContent="center"
-              bgcolor="#1263f1"
-              borderRadius="25px"
-            >
+            <Box display="flex" gap="10px" justifyContent="center">
               <Typography variant="h6" sx={{ color: "white" }}>
                 <FaCoffee></FaCoffee>
               </Typography>
