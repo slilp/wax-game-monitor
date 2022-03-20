@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Typography, Box, Grid, Avatar, CircularProgress } from "@mui/material";
+import React from "react";
+import { Typography, Box, Grid, CircularProgress } from "@mui/material";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import CancelIcon from "@mui/icons-material/Cancel";
 
@@ -8,17 +8,25 @@ import GameCardSection from "./GameSection";
 import { AssetWithProfit } from "../../../api/game/modal";
 
 import useBalance from "../../../hook/useBalance";
-import { galaxyCode } from "../../../api/game";
+import useAllInGameAccount from "../../../hook/useAllIngameAccount";
 
 interface PortCardProps {
   wallet: string;
   deleteWallet: any;
   isHighValue: boolean;
+  assetProfitData: AssetWithProfit[];
 }
 
-function PortCard({ wallet, deleteWallet, isHighValue }: PortCardProps) {
-  // const { profitData, loading } = useGameProfit({ code: galaxyCode });
+function PortCard({
+  wallet,
+  deleteWallet,
+  isHighValue,
+  assetProfitData,
+}: PortCardProps) {
   const { data: tokenData, loading } = useBalance({ wallet });
+  const { data: inGameData } = useAllInGameAccount({
+    wallet,
+  });
 
   return (
     <Box bgcolor="rgba(39, 55, 85, 0.75)" p="15px" borderRadius="15px">
@@ -131,7 +139,16 @@ function PortCard({ wallet, deleteWallet, isHighValue }: PortCardProps) {
               </Grid>
             </Box>
           </Grid>
-          <GameCardSection code={galaxyCode} wallet={wallet} />
+          {Object.keys(inGameData).map((key, index) => (
+            <GameCardSection
+              key={key}
+              code={key}
+              wallet={wallet}
+              stakeData={inGameData[key].inGameStakeData}
+              tokenData={inGameData[key].inGameTokenData}
+              assetProfitData={assetProfitData}
+            />
+          ))}
         </Grid>
       )}
     </Box>

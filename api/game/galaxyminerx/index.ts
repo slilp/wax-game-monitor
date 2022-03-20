@@ -5,6 +5,7 @@ import { RequestGetTableRows } from "../../eos/modal";
 import { AssetInfo } from "../modal";
 import { InGameTokenInfo, InGameInfo } from "../../game/modal";
 import { galaxyCode } from "../../game";
+import { GalaxyTokens } from "../../../config/tokens";
 
 const inGameAssetRequest = (wallet: string): RequestGetTableRows => ({
   code: "galaxyminers",
@@ -84,9 +85,14 @@ export const getWalletContent = async (wallet: string): Promise<InGameInfo> => {
     const tempInGameTokenData: InGameTokenInfo[] =
       result[1].data?.rows.length === 0
         ? []
-        : result[1].data?.rows[0].balances.map((token: any) => {
+        : result[1].data?.rows[0].balances.slice(0, 3).map((token: any) => {
             const tempToken: InGameTokenInfo = {
-              name: token.split(" ")[1],
+              name:
+                token.split(" ")[1] === "PLASMA"
+                  ? GalaxyTokens.GMP
+                  : token.split(" ")[1] === "OXYGEN"
+                  ? GalaxyTokens.GMO
+                  : GalaxyTokens.GMA,
               amount: parseFloat(token.split(" ")[0]),
             };
             return tempToken;

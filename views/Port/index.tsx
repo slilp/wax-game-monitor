@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import Image from "next/image";
 import {
   Typography,
   Box,
-  Grid,
   TextField,
   Button as MuiButton,
   styled as MuiStyled,
@@ -13,7 +11,7 @@ import {
 
 import PortCard from "./component/PortCard";
 import useGameProfit from "../../hook/useGameProfit";
-import useInGameAccount from "../../hook/useInGameAccount";
+import { AssetWithProfit } from "../../api/game/modal";
 
 const AntSwitch = MuiStyled(Switch)(({ theme }) => ({
   width: 28,
@@ -70,16 +68,31 @@ function Port() {
   const [portWallet, setPortWallet] = useState<string[]>([]);
   const [walletValue, setWalletValue] = useState<string>("");
   const [isHighValue, setIsHighValue] = useState<boolean>(true);
-  const { profitData } = useGameProfit({ code: "galaxyminerx" });
-  const { inGameStakeData, inGameTokenData } = useInGameAccount({
+  const [assetProfitData, setProfitAssetData] = useState<AssetWithProfit[]>([]);
+  const { profitData: profitDataGalaxy } = useGameProfit({
     code: "galaxyminerx",
-    wallet: "eft.y.c.wam",
   });
 
+  useEffect(() => {
+    setProfitAssetData((prev) => [
+      ...prev.filter(
+        (item) => !profitDataGalaxy.map((i) => i.id).includes(item.id)
+      ),
+      ...profitDataGalaxy,
+    ]);
+  }, [profitDataGalaxy]);
+
+  // const { inGameStakeData, inGameTokenData } = useInGameAccount({
+  //   code: "galaxyminerx",
+  //   wallet: "eft.y.c.wam",
+  // });
+
   const addNewWallet = () => {
-    const tempData = portWallet.filter((i) => i !== walletValue);
-    setPortWallet([...tempData, walletValue.trim()]);
-    setWalletValue("");
+    if (walletValue.trim() !== "") {
+      const tempData = portWallet.filter((i) => i !== walletValue);
+      setPortWallet([...tempData, walletValue.trim()]);
+      setWalletValue("");
+    }
   };
 
   const deleteWallet = (wallet: string) => {
@@ -140,6 +153,7 @@ function Port() {
             wallet={item}
             deleteWallet={deleteWallet}
             isHighValue={isHighValue}
+            assetProfitData={assetProfitData}
           />
           <Box height="25px" />
         </Box>

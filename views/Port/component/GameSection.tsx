@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Box, Grid, Avatar, Typography, CircularProgress } from "@mui/material";
+import Image from "next/image";
+import { Box, Grid, Avatar, Typography } from "@mui/material";
 
 import { AssetWithProfit } from "../../../api/game/modal";
-import useGameProfit from "../../../hook/useGameProfit";
-import useInGameAccount from "../../../hook/useInGameAccount";
-import { galaxyCode } from "../../../api/game";
+import { InGameTokenInfo } from "../../../api/game/modal";
 import GameCard from "./GameCard";
 
 interface TotalProfitGame {
@@ -12,39 +11,48 @@ interface TotalProfitGame {
   thb: number;
 }
 
-function GameSection({ wallet, code }: { wallet: string; code: string }) {
-  // const { profitData, loading } = useGameProfit({ code });
-  // const { inGameStakeData, inGameTokenData } = useInGameAccount({
-  //   code,
-  //   wallet,
-  // });
+interface GameSectionProps {
+  wallet: string;
+  code: string;
+  stakeData: string[];
+  tokenData: InGameTokenInfo[];
+  assetProfitData: AssetWithProfit[];
+}
+
+function GameSection({
+  wallet,
+  code,
+  assetProfitData,
+  tokenData,
+  stakeData,
+}: GameSectionProps) {
   const [totalProfit, setTotalProfit] = useState<TotalProfitGame>({
     wax: 0,
     thb: 0,
   });
 
-  // useEffect(() => {
-  //   calculateTotal();
-  // }, [profitData, inGameStakeData]);
+  useEffect(() => {
+    calculateTotal();
+  }, [assetProfitData, stakeData]);
 
-  // const calculateTotal = () => {
-  //   let waxTotal = 0;
-  //   let thbTotal = 0;
-  //   inGameStakeData?.map((item: string) => {
-  //     const tempItem = profitData.find((i) => i.id === item + "");
+  const calculateTotal = () => {
+    let waxTotal = 0;
+    let thbTotal = 0;
+    stakeData?.map((item: string) => {
+      const tempItem = assetProfitData.find((i) => i.id === item + "");
 
-  //     waxTotal += tempItem === undefined ? 0 : tempItem?.profit.wax;
-  //     thbTotal += tempItem === undefined ? 0 : tempItem?.profit.thb;
-  //   });
-  //   setTotalProfit({ wax: waxTotal, thb: thbTotal });
-  // };
+      waxTotal += tempItem === undefined ? 0 : tempItem?.profit.wax;
+      thbTotal += tempItem === undefined ? 0 : tempItem?.profit.thb;
+    });
+    setTotalProfit({ wax: waxTotal, thb: thbTotal });
+  };
 
   return (
     <>
       <Grid item xs={12}>
-        {/* <Box display="flex" key={`totalSection-${galaxyCode}`}>
+        <Box display="flex" key={`totalSection-${code}`}>
           <Box display="flex" gap="5px" alignItems="center">
-            <Avatar src={`/${galaxyCode}/${galaxyCode}.png`} alt={galaxyCode} />
+            <Avatar src={`/${code}/${code}.png`} alt={code} />
             <Typography variant="body1">Galaxy Miner</Typography>
           </Box>
           <Box flexGrow="1" textAlign="end">
@@ -53,34 +61,53 @@ function GameSection({ wallet, code }: { wallet: string; code: string }) {
             </Typography>
             <Typography>( {totalProfit.thb.toFixed(2)} THB )</Typography>
           </Box>
-        </Box> */}
-        {wallet}
-        {code}
+        </Box>
       </Grid>
-      {/* {!loading && (
-        <Grid item xs={12}>
-          <Box bgcolor="#445c87" p="15px" borderRadius="15px">
-            <Grid container spacing={1}>
-              <Grid item xs={4}>
-                Asset
-              </Grid>
-              <Grid item xs={4}>
-                Daily WAX
-              </Grid>
-              <Grid item xs={4}>
-                Daily THB
-              </Grid>
-              {inGameStakeData?.map((item: string, index) => (
-                <GameCard
-                  key={item + "-" + index}
-                  profitData={profitData}
-                  assetId={item}
-                ></GameCard>
-              ))}
+      <Grid item xs={12}>
+        <Box bgcolor="#445c87" p="15px" borderRadius="15px">
+          <Grid container spacing={1}>
+            <Grid item xs={12}>
+              In Game Token
             </Grid>
-          </Box>
-        </Grid>
-      )} */}
+            {tokenData.map((token) => (
+              <Grid item xs={4} key={token.name}>
+                <Box display="flex" alignItems="center" gap="5px">
+                  <Image
+                    src={`/tokens/${token.name}.png`}
+                    alt={token.name}
+                    width={25}
+                    height={25}
+                  />
+                  <Typography variant="body2">{token.amount}</Typography>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Grid>
+
+      <Grid item xs={12}>
+        <Box bgcolor="#445c87" p="15px" borderRadius="15px">
+          <Grid container spacing={1}>
+            <Grid item xs={4}>
+              Asset
+            </Grid>
+            <Grid item xs={4}>
+              Daily WAX
+            </Grid>
+            <Grid item xs={4}>
+              Daily THB
+            </Grid>
+            {stakeData?.map((item: string, index) => (
+              <GameCard
+                key={item + "-" + index}
+                profitData={assetProfitData}
+                assetId={item}
+              ></GameCard>
+            ))}
+          </Grid>
+        </Box>
+      </Grid>
     </>
   );
 }
