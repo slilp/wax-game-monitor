@@ -27,6 +27,8 @@ export interface RequestGetTableRows {
   lowerBound: string;
   upperBound: string;
   limit: number;
+  key_type?: string;
+  index_position?: number;
 }
 
 export interface BalanceResponse {

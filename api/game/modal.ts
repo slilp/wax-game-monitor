@@ -16,3 +16,13 @@ export interface AssetWithProfit extends AssetInfo {
     thb: number;
   };
 }
+
+export interface InGameTokenInfo {
+  name: string;
+  amount: number;
+}
+
+export interface InGameInfo {
+  inGameStake: string[];
+  inGameToken: InGameTokenInfo[];
+}

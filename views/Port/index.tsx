@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 
 import PortCard from "./component/PortCard";
+import useGameProfit from "../../hook/useGameProfit";
+import useInGameAccount from "../../hook/useInGameAccount";
 
 const AntSwitch = MuiStyled(Switch)(({ theme }) => ({
   width: 28,
@@ -68,6 +70,11 @@ function Port() {
   const [portWallet, setPortWallet] = useState<string[]>([]);
   const [walletValue, setWalletValue] = useState<string>("");
   const [isHighValue, setIsHighValue] = useState<boolean>(true);
+  const { profitData } = useGameProfit({ code: "galaxyminerx" });
+  const { inGameStakeData, inGameTokenData } = useInGameAccount({
+    code: "galaxyminerx",
+    wallet: "eft.y.c.wam",
+  });
 
   const addNewWallet = () => {
     const tempData = portWallet.filter((i) => i !== walletValue);
@@ -128,15 +135,14 @@ function Port() {
 
       <Box height="25px" />
       {portWallet.map((item) => (
-        <>
+        <Box key={item}>
           <PortCard
-            key={item}
             wallet={item}
             deleteWallet={deleteWallet}
             isHighValue={isHighValue}
           />
           <Box height="25px" />
-        </>
+        </Box>
       ))}
     </Box>
   );

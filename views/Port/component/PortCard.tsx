@@ -4,6 +4,8 @@ import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import CancelIcon from "@mui/icons-material/Cancel";
 
 import TokenSection from "./TokenSection";
+import GameCardSection from "./GameSection";
+import { AssetWithProfit } from "../../../api/game/modal";
 
 import useBalance from "../../../hook/useBalance";
 import { galaxyCode } from "../../../api/game";
@@ -129,78 +131,7 @@ function PortCard({ wallet, deleteWallet, isHighValue }: PortCardProps) {
               </Grid>
             </Box>
           </Grid>
-          <Grid item xs={12}>
-            <Box display="flex">
-              <Box display="flex" gap="5px" alignItems="center">
-                <Avatar
-                  src={`/${galaxyCode}/${galaxyCode}.png`}
-                  alt={galaxyCode}
-                />
-                <Typography variant="body1">Galaxy Miner</Typography>
-              </Box>
-              <Box flexGrow="1" textAlign="end">
-                <Typography>Total Daily : - WAX</Typography>
-                <Typography>( - THB )</Typography>
-              </Box>
-            </Box>
-          </Grid>
-          <Grid item xs={12}>
-            <Box bgcolor="#445c87" p="15px" borderRadius="15px">
-              <Grid container spacing={1}>
-                <Grid item xs={4}>
-                  Asset
-                </Grid>
-                <Grid item xs={4}>
-                  Daily WAX
-                </Grid>
-                <Grid item xs={4}>
-                  Daily THB
-                </Grid>
-                {/* <Grid item xs={4}>
-                  <Image
-                    src={`/${galaxyCode}/${"QmbKNCgPFkzAAPPGY1zPGRHggWRuUN31gzEn5rFhg6mPtH"}.png`}
-                    alt={"GMO"}
-                    width={35}
-                    height={55}
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  444
-                </Grid>
-                <Grid item xs={4}>
-                  888
-                </Grid>
-                <Grid item xs={4}>
-                  <Image
-                    src={`/${galaxyCode}/${"QmbKNCgPFkzAAPPGY1zPGRHggWRuUN31gzEn5rFhg6mPtH"}.png`}
-                    alt={"GMO"}
-                    width={35}
-                    height={55}
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  444
-                </Grid>
-                <Grid item xs={4}>
-                  888
-                </Grid>
-                <Grid item xs={4}>
-                  <Image
-                    src={`/${galaxyCode}/${"QmbKNCgPFkzAAPPGY1zPGRHggWRuUN31gzEn5rFhg6mPtH"}.png`}
-                    alt={"GMO"}
-                    width={35}
-                    height={55}
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  444
-                </Grid>
-                <Grid item xs={4}>
-                  888
-                </Grid> */}
-              </Grid>
-            </Box>
-          </Grid>
+          <GameCardSection code={galaxyCode} wallet={wallet} />
         </Grid>
       )}
     </Box>

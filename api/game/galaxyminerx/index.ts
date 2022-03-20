@@ -1,7 +1,30 @@
 import { getAllAssetByGame } from "../../atomic";
 import { AtomicAssetInfo } from "../../atomic/modal";
-import { AssetInfo, AssetWithProfit } from "../modal";
+import { getTableRow } from "../../eos";
+import { RequestGetTableRows } from "../../eos/modal";
+import { AssetInfo } from "../modal";
+import { InGameTokenInfo, InGameInfo } from "../../game/modal";
 import { galaxyCode } from "../../game";
+
+const inGameAssetRequest = (wallet: string): RequestGetTableRows => ({
+  code: "galaxyminers",
+  table: "gadgets",
+  scope: "galaxyminers",
+  upperBound: wallet,
+  lowerBound: wallet,
+  limit: 100,
+  key_type: "i64",
+  index_position: 2,
+});
+
+const inGameTokenRequest = (wallet: string): RequestGetTableRows => ({
+  code: "galaxyminers",
+  table: "players",
+  scope: "galaxyminers",
+  upperBound: wallet,
+  lowerBound: wallet,
+  limit: 100,
+});
 
 interface MutableInfo {
   [key: string]: {
@@ -50,13 +73,36 @@ export const getPublicContent = async (): Promise<AssetInfo[]> => {
   return result;
 };
 
-// export const getWalletContent = async (wallet: string): Promise<any> =>
-//   await Promise.all([
-//     getTableRow(userRequest(wallet)),
-//     getTableRow(stakeAssetRequest(wallet)),
-//     getTableRow(stakeCrewRequest(wallet)),
-//     getTableRow(stakePlanetRequest(wallet)),
-//   ]);
+export const getWalletContent = async (wallet: string): Promise<InGameInfo> => {
+  try {
+    const result = await Promise.all([
+      getTableRow(inGameAssetRequest(wallet)),
+      getTableRow(inGameTokenRequest(wallet)),
+    ]);
+
+    const tempInGameStakeData = result[0].data?.rows;
+    const tempInGameTokenData: InGameTokenInfo[] =
+      result[1].data?.rows.length === 0
+        ? []
+        : result[1].data?.rows[0].balances.map((token: any) => {
+            const tempToken: InGameTokenInfo = {
+              name: token.split(" ")[1],
+              amount: parseFloat(token.split(" ")[0]),
+            };
+            return tempToken;
+          });
+
+    return {
+      inGameStake: tempInGameStakeData.map((item: any) => item.template_id),
+      inGameToken: tempInGameTokenData,
+    };
+  } catch (error) {
+    return {
+      inGameStake: [],
+      inGameToken: [],
+    };
+  }
+};
 
 //should get from atomic api later
 

@@ -65,7 +65,7 @@ function useGameProfit({ code }: { code: string }) {
   useEffect(() => {
     const tempData = mapToData(code, calculatePrices, data);
     setProfitData(tempData);
-  }, [data, calculatePrices]);
+  }, [calculatePrices]);
 
   return {
     profitData,

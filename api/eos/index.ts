@@ -20,6 +20,8 @@ export const getTableRow = ({
   upperBound,
   lowerBound,
   limit = 100,
+  key_type = "",
+  index_position = 1,
 }: RequestGetTableRows) => {
   const request: GetTableRows = {
     code: code,
@@ -29,9 +31,9 @@ export const getTableRow = ({
     upper_bound: lowerBound,
     reverse: false,
     show_payer: false,
-    index_position: 1,
+    index_position: index_position,
     json: true,
-    key_type: "",
+    key_type: key_type,
     limit: limit,
   };
   return axios.post(`${baseUrl}/get_table_rows`, request);
