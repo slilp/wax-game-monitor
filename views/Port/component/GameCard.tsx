@@ -25,7 +25,7 @@ function GameCard({ assetId, profitData }: GameCardProps) {
   useEffect(() => {
     const tempItem = profitData.find((i) => i.id === assetId + "");
     if (tempItem) setStakedItem(tempItem);
-  }, []);
+  }, [profitData]);
 
   return (
     <>

@@ -139,6 +139,7 @@ function PortCard({
               </Grid>
             </Box>
           </Grid>
+
           {Object.keys(inGameData).map((key, index) => (
             <GameCardSection
               key={key}
