@@ -70,8 +70,8 @@ export const plasma: MutableInfo = {
   },
   ["411924"]: {
     mining: 65,
-    gmoUse: 6,
-    gmpUse: 16,
+    gmoUse: 16,
+    gmpUse: 5,
     craftGmaUse: 15000,
     craftGmpUse: 9500,
   },
