@@ -1,6 +1,6 @@
 import axios from "axios";
 import { TemplateInfo, AtomicAssetInfo, AtomicSale } from "./modal";
-const atomicAssetUrl = "https://wax-atomic-api.eosphere.io";
+const atomicAssetUrl = "https://wax.api.atomicassets.io";
 export const imageUrl = "https://ipfs.atomichub.io/ipfs";
 
 export const getAssetTemplateInfo = (templateIds: string[]) => {
