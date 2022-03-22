@@ -80,17 +80,18 @@ function Port() {
       ),
       ...profitDataGalaxy,
     ]);
+    const saveWallet = localStorage.getItem("wallets");
+    if (saveWallet !== null) setPortWallet([...JSON.parse(saveWallet)]);
   }, [profitDataGalaxy]);
-
-  // const { inGameStakeData, inGameTokenData } = useInGameAccount({
-  //   code: "galaxyminerx",
-  //   wallet: "eft.y.c.wam",
-  // });
 
   const addNewWallet = () => {
     if (walletValue.trim() !== "") {
       const tempData = portWallet.filter((i) => i !== walletValue);
       setPortWallet([...tempData, walletValue.trim()]);
+      localStorage.setItem(
+        "wallets",
+        JSON.stringify([...tempData, walletValue.trim()])
+      );
       setWalletValue("");
     }
   };
@@ -98,6 +99,7 @@ function Port() {
   const deleteWallet = (wallet: string) => {
     const tempData = portWallet.filter((i) => i !== wallet);
     setPortWallet([...tempData]);
+    localStorage.setItem("wallets", JSON.stringify([...tempData]));
   };
 
   return (
