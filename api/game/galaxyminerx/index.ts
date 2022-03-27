@@ -133,7 +133,7 @@ export const asteroid: MutableInfo = {
   ["411906"]: {
     mining: 1,
     gmoUse: 0.4,
-    gmpUse: 0.4,
+    gmpUse: 0.2,
     craftGmaUse: 450,
     craftGmpUse: 300,
   },
