@@ -21,3 +21,9 @@ export enum SxcTokens {
   SCID = "SCID",
   SCIW = "SCIW",
 }
+
+export enum AgeOfFarmingTokens {
+  AOFW = "AOFW",
+  AOFS = "AOFS",
+  AOFF = "AOFF",
+}

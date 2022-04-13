@@ -4,6 +4,7 @@ export const spxCode = "spacecraftxc";
 export const seaCode = "seafarmersio";
 export const roboCode = "roboempireio";
 export const galaxyCode = "galaxyminerx";
+export const aofCode = "ageoffarming";
 
 export const getInGameData = ({ code, wallet }: GetInGameProps) => {};
 

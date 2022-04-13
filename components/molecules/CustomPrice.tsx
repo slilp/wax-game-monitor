@@ -122,12 +122,16 @@ function CustomPrice({ game, tokens, setSelectValues }: CustomPriceProps) {
                 alignItems="center"
                 gap="7px"
               >
-                <Image
-                  src={`/${game}/${token?.tokenName}.png`}
-                  alt={token?.tokenName}
-                  width={25}
-                  height={25}
-                />
+                <Box>
+                  <Typography>{token?.tokenName}</Typography>
+                  <Image
+                    src={`/${game}/${token?.tokenName}.png`}
+                    alt={token?.tokenName}
+                    width={25}
+                    height={25}
+                  />
+                </Box>
+
                 <TextField
                   color="primary"
                   focused
