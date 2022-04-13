@@ -3,8 +3,8 @@ export const pickaxe: string[] = [
   "486825",
   "486826",
   "486827",
-  "486829",
   "486830",
+  "486829",
 ];
 export const spear: string[] = [
   "486831",

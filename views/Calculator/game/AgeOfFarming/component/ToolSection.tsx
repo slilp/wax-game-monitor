@@ -83,7 +83,11 @@ function ToolSection({ assets }: { assets: AssetInfo[] }) {
         </Grid>
         {assets
           .filter((asset) => pickaxe.includes(asset.id))
-          .sort((a, b) => parseInt(a.id) - parseInt(b.id))
+          .sort(
+            (a, b) =>
+              parseInt(a?.mutableData?.mining) -
+              parseInt(b?.mutableData?.mining)
+          )
           .map((assetData) => (
             <SubSectionTool
               key={assetData?.id}

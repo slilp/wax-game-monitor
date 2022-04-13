@@ -125,7 +125,7 @@ export const pickaxe: MutableInfo = {
     craftWoodUse: 650 + 650 + 1300,
     craftStoneUse: 500 + 470 + 920,
   },
-  ["486829"]: {
+  ["486830"]: {
     mining: 53,
     energyUse: 16,
     woodUse: 22,
@@ -133,7 +133,7 @@ export const pickaxe: MutableInfo = {
     craftWoodUse: 650 + 650 + 1300 + 2600,
     craftStoneUse: 500 + 470 + 920 + 2000,
   },
-  ["486830"]: {
+  ["486829"]: {
     mining: 118,
     energyUse: 32,
     woodUse: 45,
