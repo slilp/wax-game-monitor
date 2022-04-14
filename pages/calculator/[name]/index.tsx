@@ -18,6 +18,7 @@ export async function getStaticPaths() {
       { params: { name: "seafarmersio" } },
       { params: { name: "roboempireio" } },
       { params: { name: "galaxyminerx" } },
+      { params: { name: "diggersworld" } },
     ],
     fallback: true,
   };

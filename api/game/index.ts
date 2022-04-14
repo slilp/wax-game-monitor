@@ -5,6 +5,7 @@ export const seaCode = "seafarmersio";
 export const roboCode = "roboempireio";
 export const galaxyCode = "galaxyminerx";
 export const aofCode = "ageoffarming";
+export const diggerCode = "diggersworld";
 
 export const getInGameData = ({ code, wallet }: GetInGameProps) => {};
 

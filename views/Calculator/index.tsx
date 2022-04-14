@@ -6,12 +6,14 @@ import AgeOfFarming from "./game/AgeOfFarming";
 import SeaFarmer from "./game/SeaFarmer";
 import RoboEmpire from "./game/RoboEmpire";
 import GalaxyMiner from "./game/GalaxyMiner";
+import DiggerWorld from "./game/DiggerWorld";
 import {
   spxCode,
   seaCode,
   roboCode,
   galaxyCode,
   aofCode,
+  diggerCode,
 } from "../../api/game";
 
 export interface CalculatorProps {
@@ -26,6 +28,9 @@ function Calculator({ code }: CalculatorProps) {
       {loading && <Loader />}
       {!loading && code === aofCode && (
         <AgeOfFarming assets={data}></AgeOfFarming>
+      )}
+      {!loading && code === diggerCode && (
+        <DiggerWorld assets={data}></DiggerWorld>
       )}
       {!loading && code === spxCode && (
         <SpaceCraftX assets={data}></SpaceCraftX>

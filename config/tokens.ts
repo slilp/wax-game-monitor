@@ -27,3 +27,9 @@ export enum AgeOfFarmingTokens {
   AOFS = "AOFS",
   AOFF = "AOFF",
 }
+
+export enum DiggerWorldTokens {
+  DWD = "DWD",
+  DWS = "DWS",
+  DWI = "DWI",
+}
