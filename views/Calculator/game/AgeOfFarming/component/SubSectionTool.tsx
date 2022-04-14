@@ -124,7 +124,7 @@ function SubSectionTool({ prices, assetData }: SubSectionToolProps) {
   ) =>
     hours *
     (calculateTHB(prices, mining, miningToken) -
-      (calculateTHB(prices, energyUse, AgeOfFarmingTokens.AOFF) +
+      (calculateTHB(prices, energyUse / 5, AgeOfFarmingTokens.AOFF) +
         calculateTHB(prices, woodUse, AgeOfFarmingTokens.AOFW) +
         calculateTHB(prices, stoneUse, AgeOfFarmingTokens.AOFS)));
 
