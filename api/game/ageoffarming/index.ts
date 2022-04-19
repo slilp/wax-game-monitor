@@ -2,6 +2,8 @@ import { getAllAssetByGame, imageUrl } from "../../atomic";
 import { AtomicAssetInfo } from "../../atomic/modal";
 import { AssetInfo } from "../modal";
 import { aofCode } from "../../game";
+import { RequestGetTableRows } from "../../eos/modal";
+import { getTableRow } from "../../eos";
 
 interface MutableInfo {
   [key: string]: {
@@ -14,13 +16,25 @@ interface MutableInfo {
   };
 }
 
+const inGameAssetInfoRequest: RequestGetTableRows = {
+  code: "ageoffarming",
+  table: "toolsconfigs",
+  scope: "ageoffarming",
+  upperBound: "",
+  lowerBound: "",
+  limit: 100,
+  key_type: "",
+};
+
 const mapToPublicContent = async (): Promise<AssetInfo[]> => {
   let result: AssetInfo[] = [];
 
   const allAssetInfo = await getAllAssetByGame(aofCode);
+  const assetConfig = await getTableRow(inGameAssetInfoRequest);
+
   if (allAssetInfo.data.success) {
     allAssetInfo.data.data.map((item: AtomicAssetInfo) => {
-      let mutableData = {};
+      let mutableData: any;
       if (axe.hasOwnProperty(item?.template_id)) {
         mutableData = axe?.[item?.template_id];
       } else if (pickaxe.hasOwnProperty(item?.template_id)) {
@@ -28,7 +42,16 @@ const mapToPublicContent = async (): Promise<AssetInfo[]> => {
       } else if (spear.hasOwnProperty(item?.template_id)) {
         mutableData = spear?.[item?.template_id];
       }
-
+      if (mutableData !== undefined) {
+        const assetInfo = assetConfig?.data?.rows?.find(
+          (row: any) => row?.template_id + "" === item?.template_id + ""
+        );
+        if (assetInfo !== undefined) {
+          mutableData.energyUse = +assetInfo?.energy_cost;
+          mutableData.woodUse = +assetInfo?.wood_repair_cost;
+          mutableData.stoneUse = +assetInfo?.stone_repair_cost;
+        }
+      }
       result.push({
         id: item?.template_id ?? "",
         immutableData: {
@@ -57,12 +80,10 @@ export const getPublicContent = async (): Promise<AssetInfo[]> => {
 
 //should get from atomic api later
 
-const extra = 3;
-
 export const axe: MutableInfo = {
   ["486820"]: {
     mining: 5,
-    energyUse: extra * 3,
+    energyUse: 3,
     woodUse: 1,
     stoneUse: 2,
     craftWoodUse: 500,
@@ -70,7 +91,7 @@ export const axe: MutableInfo = {
   },
   ["486821"]: {
     mining: 11,
-    energyUse: extra * 6,
+    energyUse: 6,
     woodUse: 2,
     stoneUse: 5,
     craftWoodUse: 500 + 430,
@@ -78,7 +99,7 @@ export const axe: MutableInfo = {
   },
   ["486822"]: {
     mining: 24,
-    energyUse: extra * 12,
+    energyUse: 12,
     woodUse: 4,
     stoneUse: 10,
     craftWoodUse: 500 + 430 + 820,
@@ -86,7 +107,7 @@ export const axe: MutableInfo = {
   },
   ["486823"]: {
     mining: 53,
-    energyUse: extra * 24,
+    energyUse: 24,
     woodUse: 8,
     stoneUse: 22,
     craftWoodUse: 500 + 430 + 820 + 2000,
@@ -94,7 +115,7 @@ export const axe: MutableInfo = {
   },
   ["486824"]: {
     mining: 118,
-    energyUse: extra * 48,
+    energyUse: 48,
     woodUse: 16,
     stoneUse: 45,
     craftWoodUse: 500 + 430 + 820 + 2000 + 4000,
@@ -105,7 +126,7 @@ export const axe: MutableInfo = {
 export const pickaxe: MutableInfo = {
   ["486825"]: {
     mining: 5,
-    energyUse: extra * 3,
+    energyUse: 3,
     woodUse: 2,
     stoneUse: 1,
     craftWoodUse: 650,
@@ -113,7 +134,7 @@ export const pickaxe: MutableInfo = {
   },
   ["486826"]: {
     mining: 11,
-    energyUse: extra * 6,
+    energyUse: 6,
     woodUse: 5,
     stoneUse: 2,
     craftWoodUse: 650 + 650,
@@ -121,7 +142,7 @@ export const pickaxe: MutableInfo = {
   },
   ["486827"]: {
     mining: 24,
-    energyUse: extra * 12,
+    energyUse: 12,
     woodUse: 10,
     stoneUse: 4,
     craftWoodUse: 650 + 650 + 1300,
@@ -129,7 +150,7 @@ export const pickaxe: MutableInfo = {
   },
   ["486830"]: {
     mining: 53,
-    energyUse: extra * 24,
+    energyUse: 24,
     woodUse: 22,
     stoneUse: 8,
     craftWoodUse: 650 + 650 + 1300 + 2600,
@@ -137,7 +158,7 @@ export const pickaxe: MutableInfo = {
   },
   ["486829"]: {
     mining: 118,
-    energyUse: extra * 48,
+    energyUse: 48,
     woodUse: 45,
     stoneUse: 16,
     craftWoodUse: 650 + 650 + 1300 + 2600 + 5200,
@@ -148,7 +169,7 @@ export const pickaxe: MutableInfo = {
 export const spear: MutableInfo = {
   ["486831"]: {
     mining: 4,
-    energyUse: extra * 3,
+    energyUse: 3,
     woodUse: 1,
     stoneUse: 1,
     craftWoodUse: 580,
@@ -156,7 +177,7 @@ export const spear: MutableInfo = {
   },
   ["486832"]: {
     mining: 8,
-    energyUse: extra * 6,
+    energyUse: 6,
     woodUse: 2,
     stoneUse: 2,
     craftWoodUse: 580 + 580,
@@ -164,7 +185,7 @@ export const spear: MutableInfo = {
   },
   ["486833"]: {
     mining: 19,
-    energyUse: extra * 12,
+    energyUse: 12,
     woodUse: 5,
     stoneUse: 4,
     craftWoodUse: 580 + 580 + 1060,
@@ -172,7 +193,7 @@ export const spear: MutableInfo = {
   },
   ["486834"]: {
     mining: 39,
-    energyUse: extra * 24,
+    energyUse: 24,
     woodUse: 8,
     stoneUse: 8,
     craftWoodUse: 580 + 580 + 1060 + 2120,
@@ -180,7 +201,7 @@ export const spear: MutableInfo = {
   },
   ["486835"]: {
     mining: 92,
-    energyUse: extra * 48,
+    energyUse: 48,
     woodUse: 18,
     stoneUse: 18,
     craftWoodUse: 580 + 580 + 1060 + 2120 + 4240,
