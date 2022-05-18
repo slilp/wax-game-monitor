@@ -93,8 +93,8 @@ export const bombs: MutableInfo = {
   ["485363"]: {
     mining: 6,
     miningToken: DiggerWorldTokens.DWI,
-    ironUse: 2,
-    sulfurUse: 0,
+    ironUse: 0,
+    sulfurUse: 2,
     diamondUse: 1,
     craftIronUse: 0,
     craftSulfurUse: 900,
@@ -103,8 +103,8 @@ export const bombs: MutableInfo = {
   ["485364"]: {
     mining: 19,
     miningToken: DiggerWorldTokens.DWI,
-    ironUse: 6,
-    sulfurUse: 0,
+    ironUse: 0,
+    sulfurUse: 6,
     diamondUse: 3,
     craftIronUse: 0,
     craftSulfurUse: 2650,
@@ -113,8 +113,8 @@ export const bombs: MutableInfo = {
   ["485365"]: {
     mining: 60,
     miningToken: DiggerWorldTokens.DWI,
-    ironUse: 18,
-    sulfurUse: 0,
+    ironUse: 0,
+    sulfurUse: 18,
     diamondUse: 9,
     craftIronUse: 0,
     craftSulfurUse: 7900,
